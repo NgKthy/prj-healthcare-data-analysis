@@ -1,0 +1,422 @@
+{
+  "dataset_summary": {
+    "total_raw_records": 55500,
+    "raw_columns_count": 15,
+    "exact_duplicate_records": 534,
+    "cleaned_records": 54966,
+    "negative_billing_records": 106,
+    "valid_positive_billing_records": 54860,
+    "admission_date_start": "2019-05-08",
+    "admission_date_end": "2024-05-07",
+    "discharge_date_start": "2019-05-09",
+    "discharge_date_end": "2024-06-06",
+    "unique_hospitals": 39876,
+    "unique_doctors": 40341,
+    "unique_patient_names": 40235
+  },
+  "billing_kpis": {
+    "total_billing_all": 1404068337.89,
+    "total_billing_positive": 1404121599.97,
+    "avg_billing_all": 25544.30626005167,
+    "median_billing_all": 25542.75,
+    "avg_billing_positive": 25594.63361228582,
+    "median_billing_positive": 25593.875,
+    "min_billing": -2008.49,
+    "max_billing": 52764.28
+  },
+  "length_of_stay_kpis": {
+    "avg_los_days": 15.499290470472657,
+    "median_los_days": 15.0,
+    "min_los_days": 1,
+    "max_los_days": 30,
+    "invalid_los_count": 0
+  },
+  "gender_distribution": [
+    {
+      "gender": "Female",
+      "records": 27470,
+      "avg_age": 51.58441936658173,
+      "total_billing": 699773478.89,
+      "avg_billing": 25474.098248634873,
+      "pct_records": 49.98
+    },
+    {
+      "gender": "Male",
+      "records": 27496,
+      "avg_age": 51.485997963340125,
+      "total_billing": 704294859.0,
+      "avg_billing": 25614.447883328485,
+      "pct_records": 50.02
+    }
+  ],
+  "age_group_distribution": [
+    {
+      "age_group": "< 18",
+      "records": 116,
+      "avg_billing": 28512.864051724137,
+      "median_billing": 30050.64,
+      "avg_los": 15.318965517241379,
+      "pct_records": 0.21
+    },
+    {
+      "age_group": "18 - 35",
+      "records": 14289,
+      "avg_billing": 25571.577472881236,
+      "median_billing": 25379.57,
+      "avg_los": 15.415074532857442,
+      "pct_records": 26.0
+    },
+    {
+      "age_group": "36 - 50",
+      "records": 12167,
+      "avg_billing": 25513.013945097395,
+      "median_billing": 25415.32,
+      "avg_los": 15.417851565710528,
+      "pct_records": 22.14
+    },
+    {
+      "age_group": "51 - 65",
+      "records": 12298,
+      "avg_billing": 25663.86927386567,
+      "median_billing": 25941.715,
+      "avg_los": 15.582696373394048,
+      "pct_records": 22.37
+    },
+    {
+      "age_group": "65+",
+      "records": 16096,
+      "avg_billing": 25431.00584927932,
+      "median_billing": 25455.475,
+      "avg_los": 15.57318588469185,
+      "pct_records": 29.28
+    }
+  ],
+  "blood_type_distribution": [
+    {
+      "blood_type": "A-",
+      "records": 6898,
+      "pct_records": 12.55
+    },
+    {
+      "blood_type": "A+",
+      "records": 6896,
+      "pct_records": 12.55
+    },
+    {
+      "blood_type": "B+",
+      "records": 6885,
+      "pct_records": 12.53
+    },
+    {
+      "blood_type": "AB+",
+      "records": 6882,
+      "pct_records": 12.52
+    },
+    {
+      "blood_type": "AB-",
+      "records": 6874,
+      "pct_records": 12.51
+    },
+    {
+      "blood_type": "B-",
+      "records": 6872,
+      "pct_records": 12.5
+    },
+    {
+      "blood_type": "O+",
+      "records": 6855,
+      "pct_records": 12.47
+    },
+    {
+      "blood_type": "O-",
+      "records": 6804,
+      "pct_records": 12.38
+    }
+  ],
+  "medical_condition_analysis": [
+    {
+      "medical_condition": "Arthritis",
+      "records": 9218,
+      "total_billing": 235167617.95,
+      "avg_billing": 25511.783244738555,
+      "median_billing": 25599.184999999998,
+      "avg_los": 15.50423085267954,
+      "pct_records": 16.77,
+      "pct_billing": 16.75
+    },
+    {
+      "medical_condition": "Diabetes",
+      "records": 9216,
+      "total_billing": 236486971.03,
+      "avg_billing": 25660.478627387154,
+      "median_billing": 25647.705,
+      "avg_los": 15.4306640625,
+      "pct_records": 16.77,
+      "pct_billing": 16.84
+    },
+    {
+      "medical_condition": "Hypertension",
+      "records": 9151,
+      "total_billing": 233378490.11,
+      "avg_billing": 25503.05869413179,
+      "median_billing": 25281.63,
+      "avg_los": 15.436236476887771,
+      "pct_records": 16.65,
+      "pct_billing": 16.62
+    },
+    {
+      "medical_condition": "Obesity",
+      "records": 9146,
+      "total_billing": 236006693.57,
+      "avg_billing": 25804.361859829434,
+      "median_billing": 26145.58,
+      "avg_los": 15.447627378088782,
+      "pct_records": 16.64,
+      "pct_billing": 16.81
+    },
+    {
+      "medical_condition": "Cancer",
+      "records": 9140,
+      "total_billing": 229892231.55,
+      "avg_billing": 25152.322926695844,
+      "median_billing": 24910.71,
+      "avg_los": 15.501203501094093,
+      "pct_records": 16.63,
+      "pct_billing": 16.37
+    },
+    {
+      "medical_condition": "Asthma",
+      "records": 9095,
+      "total_billing": 233136333.68,
+      "avg_billing": 25633.461647058823,
+      "median_billing": 25628.41,
+      "avg_los": 15.677295217152281,
+      "pct_records": 16.55,
+      "pct_billing": 16.6
+    }
+  ],
+  "admission_type_analysis": [
+    {
+      "admission_type": "Elective",
+      "records": 18473,
+      "total_billing": 473133055.26,
+      "avg_billing": 25612.13962323391,
+      "avg_los": 15.511178476695719,
+      "pct_records": 33.61,
+      "pct_billing": 33.7
+    },
+    {
+      "admission_type": "Urgent",
+      "records": 18391,
+      "total_billing": 469237758.92,
+      "avg_billing": 25514.532049371977,
+      "avg_los": 15.403838834212387,
+      "pct_records": 33.46,
+      "pct_billing": 33.42
+    },
+    {
+      "admission_type": "Emergency",
+      "records": 18102,
+      "total_billing": 461697523.71,
+      "avg_billing": 25505.33221246271,
+      "avg_los": 15.584134349795603,
+      "pct_records": 32.93,
+      "pct_billing": 32.88
+    }
+  ],
+  "insurance_analysis": [
+    {
+      "insurance_provider": "Cigna",
+      "records": 11139,
+      "total_billing": 284334099.12,
+      "avg_billing": 25525.998664152976,
+      "median_billing": 25537.18,
+      "avg_los": 15.479486488912828,
+      "pct_records": 20.27,
+      "pct_billing": 20.25
+    },
+    {
+      "insurance_provider": "Medicare",
+      "records": 11039,
+      "total_billing": 282911026.34,
+      "avg_billing": 25628.32016849352,
+      "median_billing": 25629.33,
+      "avg_los": 15.624875441616089,
+      "pct_records": 20.08,
+      "pct_billing": 20.15
+    },
+    {
+      "insurance_provider": "Blue Cross",
+      "records": 10952,
+      "total_billing": 280409100.53,
+      "avg_billing": 25603.460603542728,
+      "median_billing": 25580.54,
+      "avg_los": 15.507395909422936,
+      "pct_records": 19.93,
+      "pct_billing": 19.97
+    },
+    {
+      "insurance_provider": "UnitedHealthcare",
+      "records": 11014,
+      "total_billing": 279915371.16,
+      "avg_billing": 25414.506188487383,
+      "median_billing": 25222.11,
+      "avg_los": 15.439349918285819,
+      "pct_records": 20.04,
+      "pct_billing": 19.94
+    },
+    {
+      "insurance_provider": "Aetna",
+      "records": 10822,
+      "total_billing": 276498740.74,
+      "avg_billing": 25549.689589724636,
+      "median_billing": 25765.375,
+      "avg_los": 15.444372574385511,
+      "pct_records": 19.69,
+      "pct_billing": 19.69
+    }
+  ],
+  "test_results_distribution": [
+    {
+      "test_results": "Abnormal",
+      "records": 18437,
+      "avg_billing": 25544.035128817053,
+      "pct_records": 33.54
+    },
+    {
+      "test_results": "Inconclusive",
+      "records": 18198,
+      "avg_billing": 25637.338465765468,
+      "pct_records": 33.11
+    },
+    {
+      "test_results": "Normal",
+      "records": 18331,
+      "avg_billing": 25452.22174567672,
+      "pct_records": 33.35
+    }
+  ],
+  "medication_distribution": [
+    {
+      "medication": "Aspirin",
+      "records": 10984,
+      "avg_billing": 25597.531201748,
+      "pct_records": 19.98
+    },
+    {
+      "medication": "Ibuprofen",
+      "records": 11023,
+      "avg_billing": 25744.79418579334,
+      "pct_records": 20.05
+    },
+    {
+      "medication": "Lipitor",
+      "records": 11038,
+      "avg_billing": 25338.094942018484,
+      "pct_records": 20.08
+    },
+    {
+      "medication": "Paracetamol",
+      "records": 10965,
+      "avg_billing": 25557.03149019608,
+      "pct_records": 19.95
+    },
+    {
+      "medication": "Penicillin",
+      "records": 10956,
+      "avg_billing": 25484.250328587077,
+      "pct_records": 19.93
+    }
+  ],
+  "cost_quartiles": [
+    {
+      "billing_quartile": "Q1 (Lowest)",
+      "records": 13742,
+      "min_billing": -2008.49,
+      "max_billing": 13243.61,
+      "avg_billing": 7075.355563964488,
+      "total_billing": 97229536.16,
+      "avg_los": 15.610537039732208
+    },
+    {
+      "billing_quartile": "Q2",
+      "records": 13741,
+      "min_billing": 13244.06,
+      "max_billing": 25542.45,
+      "avg_billing": 19424.575606578852,
+      "total_billing": 266913093.41,
+      "avg_los": 15.476384542609708
+    },
+    {
+      "billing_quartile": "Q3",
+      "records": 13741,
+      "min_billing": 25543.05,
+      "max_billing": 37817.96,
+      "avg_billing": 31679.739585910775,
+      "total_billing": 435311301.65,
+      "avg_los": 15.43817771632341
+    },
+    {
+      "billing_quartile": "Q4 (Highest)",
+      "records": 13742,
+      "min_billing": 37820.49,
+      "max_billing": 52764.28,
+      "avg_billing": 43997.55542642992,
+      "total_billing": 604614406.67,
+      "avg_los": 15.472056469218455
+    }
+  ],
+  "high_cost_analysis": {
+    "p95_threshold": 47638.2675,
+    "high_cost_records_count": 2749,
+    "pct_of_total_records": 5.0,
+    "total_high_cost_billing": 134791014.99,
+    "pct_of_total_billing": 9.6,
+    "avg_high_cost_billing": 49032.74463077483,
+    "avg_los_high_cost": 15.468170243724991
+  },
+  "annual_trends": [
+    {
+      "admission_year": 2019,
+      "records": 7300,
+      "total_billing": 187511030.58,
+      "avg_billing": 25686.442545205482,
+      "pct_records": 13.28
+    },
+    {
+      "admission_year": 2020,
+      "records": 11172,
+      "total_billing": 283952664.08,
+      "avg_billing": 25416.45757966344,
+      "pct_records": 20.33
+    },
+    {
+      "admission_year": 2021,
+      "records": 10816,
+      "total_billing": 277178298.68,
+      "avg_billing": 25626.691815828402,
+      "pct_records": 19.68
+    },
+    {
+      "admission_year": 2022,
+      "records": 10915,
+      "total_billing": 278612039.87,
+      "avg_billing": 25525.610615666516,
+      "pct_records": 19.86
+    },
+    {
+      "admission_year": 2023,
+      "records": 10936,
+      "total_billing": 279670832.19,
+      "avg_billing": 25573.411868141917,
+      "pct_records": 19.9
+    },
+    {
+      "admission_year": 2024,
+      "records": 3827,
+      "total_billing": 97143472.49,
+      "avg_billing": 25383.713741834334,
+      "pct_records": 6.96
+    }
+  ]
+}
