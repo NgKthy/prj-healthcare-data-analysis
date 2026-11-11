@@ -1,0 +1,94 @@
+{
+  "summary": {
+    "total_raw_rows": 55500,
+    "total_cleaned_rows": 54966,
+    "duplicates_removed": 534,
+    "status": "PASS"
+  },
+  "tests": [
+    {
+      "test_id": "T01_RAW_ROW_COUNT",
+      "name": "Raw staging count matches benchmark (55,500)",
+      "status": "PASS",
+      "details": "(Count: 55500)"
+    },
+    {
+      "test_id": "T02_RAW_NULL_CHECK",
+      "name": "Zero null or missing values across raw dataset",
+      "status": "PASS",
+      "details": "(Nulls found: 0)"
+    },
+    {
+      "test_id": "T03_RAW_DUPLICATE_AUDIT",
+      "name": "Exact duplicates accurately identified (534 expected)",
+      "status": "PASS",
+      "details": "(Duplicates found: 534)"
+    },
+    {
+      "test_id": "T04_CLEANED_ROW_COUNT",
+      "name": "Cleaned admissions table matches expected (54,966)",
+      "status": "PASS",
+      "details": "(Cleaned count: 54966)"
+    },
+    {
+      "test_id": "T05_PRIMARY_KEY_UNIQUE",
+      "name": "Surrogate key admission_record_id is 100% unique",
+      "status": "PASS",
+      "details": "(Distinct keys: 54966)"
+    },
+    {
+      "test_id": "T06_DATE_CHRONOLOGY",
+      "name": "Discharge date occurs on or after admission date",
+      "status": "PASS",
+      "details": "(Inversions found: 0)"
+    },
+    {
+      "test_id": "T07_LOS_BOUNDARIES",
+      "name": "Inpatient stay between 1 and 30 days without negative values",
+      "status": "PASS",
+      "details": "(Range: 1 to 30 days)"
+    },
+    {
+      "test_id": "T08_AGE_RANGE",
+      "name": "Patient age strictly between 0 and 125 years",
+      "status": "PASS",
+      "details": "(Range: 13 to 89 years)"
+    },
+    {
+      "test_id": "T09_NEGATIVE_BILLING_FLAG",
+      "name": "Negative billing correctly identified & flagged (106 records)",
+      "status": "PASS",
+      "details": "(Negative charges: 106, Flagged: 106)"
+    },
+    {
+      "test_id": "T10_FINANCIAL_RECONCILIATION",
+      "name": "Raw rounded billing = Cleaned billing + Duplicate billing",
+      "status": "PASS",
+      "details": "(Raw: $1,417,432,041.95 | Cleaned+Dup: $1,417,432,041.95)"
+    },
+    {
+      "test_id": "T11_CONDITION_DOMAIN",
+      "name": "Medical condition domain strictly matches 6 allowed values",
+      "status": "PASS",
+      "details": "(Distinct: 6)"
+    },
+    {
+      "test_id": "T12_INSURANCE_DOMAIN",
+      "name": "Insurance carrier domain strictly matches 5 allowed values",
+      "status": "PASS",
+      "details": "(Distinct: 5)"
+    },
+    {
+      "test_id": "T13_ADMISSION_TYPE_DOMAIN",
+      "name": "Admission type domain strictly matches 3 allowed values",
+      "status": "PASS",
+      "details": "(Distinct: 3)"
+    },
+    {
+      "test_id": "T14_TITLE_CASING",
+      "name": "Patient names standardized to proper Title Case",
+      "status": "PASS",
+      "details": "(Anomalies found: 0)"
+    }
+  ]
+}
