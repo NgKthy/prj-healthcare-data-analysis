@@ -1,0 +1,29 @@
+[
+  {
+    "admission_type": "Elective",
+    "records": 18473,
+    "total_billing": 473133055.26,
+    "avg_billing": 25612.13962323391,
+    "avg_los": 15.511178476695719,
+    "pct_records": 33.61,
+    "pct_billing": 33.7
+  },
+  {
+    "admission_type": "Urgent",
+    "records": 18391,
+    "total_billing": 469237758.92,
+    "avg_billing": 25514.532049371977,
+    "avg_los": 15.403838834212387,
+    "pct_records": 33.46,
+    "pct_billing": 33.42
+  },
+  {
+    "admission_type": "Emergency",
+    "records": 18102,
+    "total_billing": 461697523.71,
+    "avg_billing": 25505.33221246271,
+    "avg_los": 15.584134349795603,
+    "pct_records": 32.93,
+    "pct_billing": 32.88
+  }
+]

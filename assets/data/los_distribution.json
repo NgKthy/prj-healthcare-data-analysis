@@ -1,0 +1,44 @@
+[
+  {
+    "los_tier":"1-5 Days",
+    "encounters":9133,
+    "avg_billing":25601.48,
+    "total_billing":233818315.6899999976,
+    "pct_share":16.62
+  },
+  {
+    "los_tier":"6-10 Days",
+    "encounters":9204,
+    "avg_billing":25760.94,
+    "total_billing":237103689.3700000048,
+    "pct_share":16.74
+  },
+  {
+    "los_tier":"11-15 Days",
+    "encounters":9199,
+    "avg_billing":25505.75,
+    "total_billing":234627438.4399999976,
+    "pct_share":16.74
+  },
+  {
+    "los_tier":"16-20 Days",
+    "encounters":9095,
+    "avg_billing":25400.24,
+    "total_billing":231015154.4499999881,
+    "pct_share":16.55
+  },
+  {
+    "los_tier":"21-25 Days",
+    "encounters":9142,
+    "avg_billing":25548.64,
+    "total_billing":233565703.1100000143,
+    "pct_share":16.63
+  },
+  {
+    "los_tier":"26-30 Days",
+    "encounters":9193,
+    "avg_billing":25447.41,
+    "total_billing":233938036.8300000131,
+    "pct_share":16.72
+  }
+]

@@ -1,0 +1,43 @@
+{
+  "dataset_summary": {
+    "total_raw_records": 55500,
+    "raw_columns_count": 15,
+    "exact_duplicate_records": 534,
+    "cleaned_records": 54966,
+    "negative_billing_records": 106,
+    "valid_positive_billing_records": 54860,
+    "admission_date_start": "2019-05-08",
+    "admission_date_end": "2024-05-07",
+    "discharge_date_start": "2019-05-09",
+    "discharge_date_end": "2024-06-06",
+    "unique_hospitals": 39876,
+    "unique_doctors": 40341,
+    "unique_patient_names": 40235
+  },
+  "billing_kpis": {
+    "total_billing_all": 1404068337.89,
+    "total_billing_positive": 1404121599.97,
+    "avg_billing_all": 25544.30626005167,
+    "median_billing_all": 25542.75,
+    "avg_billing_positive": 25594.63361228582,
+    "median_billing_positive": 25593.875,
+    "min_billing": -2008.49,
+    "max_billing": 52764.28
+  },
+  "length_of_stay_kpis": {
+    "avg_los_days": 15.499290470472657,
+    "median_los_days": 15.0,
+    "min_los_days": 1,
+    "max_los_days": 30,
+    "invalid_los_count": 0
+  },
+  "high_cost_analysis": {
+    "p95_threshold": 47638.2675,
+    "high_cost_records_count": 2749,
+    "pct_of_total_records": 5.0,
+    "total_high_cost_billing": 134791014.99,
+    "pct_of_total_billing": 9.6,
+    "avg_high_cost_billing": 49032.74463077483,
+    "avg_los_high_cost": 15.468170243724991
+  }
+}

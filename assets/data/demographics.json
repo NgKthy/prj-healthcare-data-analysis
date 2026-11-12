@@ -1,0 +1,104 @@
+{
+  "gender": [
+    {
+      "gender": "Female",
+      "records": 27470,
+      "avg_age": 51.58441936658173,
+      "total_billing": 699773478.89,
+      "avg_billing": 25474.098248634873,
+      "pct_records": 49.98
+    },
+    {
+      "gender": "Male",
+      "records": 27496,
+      "avg_age": 51.485997963340125,
+      "total_billing": 704294859.0,
+      "avg_billing": 25614.447883328485,
+      "pct_records": 50.02
+    }
+  ],
+  "age_groups": [
+    {
+      "age_group": "< 18",
+      "records": 116,
+      "avg_billing": 28512.864051724137,
+      "median_billing": 30050.64,
+      "avg_los": 15.318965517241379,
+      "pct_records": 0.21
+    },
+    {
+      "age_group": "18 - 35",
+      "records": 14289,
+      "avg_billing": 25571.577472881236,
+      "median_billing": 25379.57,
+      "avg_los": 15.415074532857442,
+      "pct_records": 26.0
+    },
+    {
+      "age_group": "36 - 50",
+      "records": 12167,
+      "avg_billing": 25513.013945097395,
+      "median_billing": 25415.32,
+      "avg_los": 15.417851565710528,
+      "pct_records": 22.14
+    },
+    {
+      "age_group": "51 - 65",
+      "records": 12298,
+      "avg_billing": 25663.86927386567,
+      "median_billing": 25941.715,
+      "avg_los": 15.582696373394048,
+      "pct_records": 22.37
+    },
+    {
+      "age_group": "65+",
+      "records": 16096,
+      "avg_billing": 25431.00584927932,
+      "median_billing": 25455.475,
+      "avg_los": 15.57318588469185,
+      "pct_records": 29.28
+    }
+  ],
+  "blood_types": [
+    {
+      "blood_type": "A-",
+      "records": 6898,
+      "pct_records": 12.55
+    },
+    {
+      "blood_type": "A+",
+      "records": 6896,
+      "pct_records": 12.55
+    },
+    {
+      "blood_type": "B+",
+      "records": 6885,
+      "pct_records": 12.53
+    },
+    {
+      "blood_type": "AB+",
+      "records": 6882,
+      "pct_records": 12.52
+    },
+    {
+      "blood_type": "AB-",
+      "records": 6874,
+      "pct_records": 12.51
+    },
+    {
+      "blood_type": "B-",
+      "records": 6872,
+      "pct_records": 12.5
+    },
+    {
+      "blood_type": "O+",
+      "records": 6855,
+      "pct_records": 12.47
+    },
+    {
+      "blood_type": "O-",
+      "records": 6804,
+      "pct_records": 12.38
+    }
+  ]
+}

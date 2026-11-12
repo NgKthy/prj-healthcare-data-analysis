@@ -1,0 +1,52 @@
+[
+  {
+    "insurance_provider": "Cigna",
+    "records": 11139,
+    "total_billing": 284334099.12,
+    "avg_billing": 25525.998664152976,
+    "median_billing": 25537.18,
+    "avg_los": 15.479486488912828,
+    "pct_records": 20.27,
+    "pct_billing": 20.25
+  },
+  {
+    "insurance_provider": "Medicare",
+    "records": 11039,
+    "total_billing": 282911026.34,
+    "avg_billing": 25628.32016849352,
+    "median_billing": 25629.33,
+    "avg_los": 15.624875441616089,
+    "pct_records": 20.08,
+    "pct_billing": 20.15
+  },
+  {
+    "insurance_provider": "Blue Cross",
+    "records": 10952,
+    "total_billing": 280409100.53,
+    "avg_billing": 25603.460603542728,
+    "median_billing": 25580.54,
+    "avg_los": 15.507395909422936,
+    "pct_records": 19.93,
+    "pct_billing": 19.97
+  },
+  {
+    "insurance_provider": "UnitedHealthcare",
+    "records": 11014,
+    "total_billing": 279915371.16,
+    "avg_billing": 25414.506188487383,
+    "median_billing": 25222.11,
+    "avg_los": 15.439349918285819,
+    "pct_records": 20.04,
+    "pct_billing": 19.94
+  },
+  {
+    "insurance_provider": "Aetna",
+    "records": 10822,
+    "total_billing": 276498740.74,
+    "avg_billing": 25549.689589724636,
+    "median_billing": 25765.375,
+    "avg_los": 15.444372574385511,
+    "pct_records": 19.69,
+    "pct_billing": 19.69
+  }
+]
