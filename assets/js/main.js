@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCaseStudyTabs();
   initCodeCopy();
   initCharts();
+  initScrollSpy();
 });
 
 // 1. Accessible Mobile Navigation
@@ -475,4 +476,46 @@ function renderAdmissionTypeChart(data) {
       cutout: '65%'
     }
   });
+}
+
+// 5. ScrollSpy & Floating Back-to-Top
+function initScrollSpy() {
+  const sections = document.querySelectorAll('header[id], section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a.nav-link');
+  const backToTopBtn = document.getElementById('back-to-top');
+
+  function onScroll() {
+    const scrollPos = window.scrollY + 100;
+
+    // Toggle Back to Top button
+    if (backToTopBtn) {
+      if (window.scrollY > 350) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    }
+
+    // ScrollSpy active link detection
+    let currentId = '';
+    sections.forEach(section => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      if (scrollPos >= top && scrollPos < top + height) {
+        currentId = section.getAttribute('id');
+      }
+    });
+
+    if (currentId) {
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${currentId}`) {
+          link.classList.add('active');
+        }
+      });
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 }
