@@ -14,7 +14,7 @@ Each insight in this report is anchored strictly by verified numbers from the au
   - $Q_2$ (Mid-Low, $N = 13,741$): Average billing is **\$19,424.58**; total billing is **\$266,913,093.41** (19.01%).
   - $Q_3$ (Mid-High, $N = 13,741$): Average billing is **\$31,679.74**; total billing is **\$435,311,301.65** (31.00%).
   - $Q_4$ (Highest 25%, $N = 13,742$): Billing ranges from \$37,820.49 to \$52,764.28; average billing is **\$43,997.56**; total billing is **\$604,614,406.67** (**43.06% of gross charges**).
-  - Top 5% Outlier Threshold ($P_{95} \ge \$47,638.27$, $N = 2,749$): Absorbs **\$134,791,014.99** (9.60% of total revenue) with an average charge of **\$49,032.74**.
+  - Top 5% Outlier Threshold ($P_{95} \ge \$47,638.27$, $N = 2,749$): Absorbs **\$134,791,014.99** (9.60% of gross billed charges) with an average charge of **\$49,032.74**.
 - **Business Implication**: In hospital revenue cycle management, commercial payer negotiations and denial management should focus predominantly on $Q_4$ and $P_{95}$ claims. High-dollar claims face significantly higher pre-authorization scrutiny and denial risks from commercial carriers.
 - **Recommendation**:
   1. Institute automated clinical documentation audits for claims exceeding \$37,820 ($Q_4$) prior to billing submission to prevent claim denials.
@@ -61,12 +61,12 @@ Each insight in this report is anchored strictly by verified numbers from the au
 
 - **Finding**: Encounter volume and gross financial charges are remarkably balanced across the six tracked chronic disease categories, each generating between \$229.8M and \$236.5M in gross billed charges.
 - **Evidence**:
-  - **Diabetes**: 9,216 cases (16.77%), total billing **\$236,486,971.03** (16.84% of revenue), avg billing **\$25,660.48**, median **\$25,647.71**, avg stay **15.43 days**.
-  - **Obesity**: 9,146 cases (16.64%), total billing **\$236,006,693.57** (16.81% of revenue), avg billing **\$25,804.36**, median **\$26,145.58**, avg stay **15.45 days**.
-  - **Arthritis**: 9,218 cases (16.77%), total billing **\$235,167,617.95** (16.75% of revenue), avg billing **\$25,511.78**, median **\$25,599.18**, avg stay **15.50 days**.
-  - **Hypertension**: 9,151 cases (16.65%), total billing **\$233,378,490.11** (16.62% of revenue), avg billing **\$25,503.06**, median **\$25,281.63**, avg stay **15.44 days**.
-  - **Asthma**: 9,095 cases (16.55%), total billing **\$233,136,333.68** (16.60% of revenue), avg billing **\$25,633.46**, median **\$25,628.41**, avg stay **15.68 days**.
-  - **Cancer**: 9,140 cases (16.63%), total billing **\$229,892,231.55** (16.37% of revenue), avg billing **\$25,152.32**, median **\$24,910.71**, avg stay **15.50 days**.
+  - **Diabetes**: 9,216 cases (16.77%), total billing **\$236,486,971.03** (16.84% of gross billing), avg billing **\$25,660.48**, median **\$25,647.71**, avg stay **15.43 days**.
+  - **Obesity**: 9,146 cases (16.64%), total billing **\$236,006,693.57** (16.81% of gross billing), avg billing **\$25,804.36**, median **\$26,145.58**, avg stay **15.45 days**.
+  - **Arthritis**: 9,218 cases (16.77%), total billing **\$235,167,617.95** (16.75% of gross billing), avg billing **\$25,511.78**, median **\$25,599.18**, avg stay **15.50 days**.
+  - **Hypertension**: 9,151 cases (16.65%), total billing **\$233,378,490.11** (16.62% of gross billing), avg billing **\$25,503.06**, median **\$25,281.63**, avg stay **15.44 days**.
+  - **Asthma**: 9,095 cases (16.55%), total billing **\$233,136,333.68** (16.60% of gross billing), avg billing **\$25,633.46**, median **\$25,628.41**, avg stay **15.68 days**.
+  - **Cancer**: 9,140 cases (16.63%), total billing **\$229,892,231.55** (16.37% of gross billing), avg billing **\$25,152.32**, median **\$24,910.71**, avg stay **15.50 days**.
 - **Business Implication**: Cardiometabolic conditions (Diabetes, Obesity, Hypertension) together represent **50.05% of all admissions** ($N = 27,513$) and **\$705,872,154.71** in gross hospital charges.
 - **Recommendation**:
   1. Invest in integrated cardiometabolic chronic care management programs to support outpatient disease management.

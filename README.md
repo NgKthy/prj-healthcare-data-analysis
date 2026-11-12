@@ -338,8 +338,8 @@ prj-healthcare-data-analysis/
 
 ### Clone the Repository
 ```bash
-git clone https://github.com/your-username/healthcare-data-analysis-sql.git
-cd healthcare-data-analysis-sql
+git clone https://github.com/NgKthy/prj-healthcare-data-analysis.git
+cd prj-healthcare-data-analysis
 ```
 
 ---

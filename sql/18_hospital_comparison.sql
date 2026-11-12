@@ -11,7 +11,7 @@ SET search_path TO healthcare, public;
 
 -- -----------------------------------------------------------------------------
 -- QUERY 14.1: Comprehensive Hospital Facility Comparative Scorecard
--- Evaluates throughput, total revenue, average charge, median charge,
+-- Evaluates throughput, total gross billing, average charge, median charge,
 -- average length of stay, and emergency admission proportion for active facilities.
 -- -----------------------------------------------------------------------------
 WITH facility_aggregates AS (

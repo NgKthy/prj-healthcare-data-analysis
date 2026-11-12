@@ -12,7 +12,7 @@ SET search_path TO healthcare, public;
 -- -----------------------------------------------------------------------------
 -- QUERY 2.1: Clinical Condition Portfolio Overview
 -- Evaluates admissions, gross billing, average charges, median charges,
--- and percentage shares of overall volume and revenue.
+-- and percentage shares of overall volume and gross billed charges.
 -- -----------------------------------------------------------------------------
 WITH condition_metrics AS (
     SELECT 

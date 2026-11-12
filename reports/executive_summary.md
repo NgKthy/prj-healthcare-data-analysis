@@ -47,7 +47,7 @@ pie title Gross Billing Distribution by Cost Quartile
 While patient volume is evenly divided across cost quartiles (13,741 to 13,742 admissions each), **Quartile 4 ($Q_4$) accounts for 43.06% of all billed dollars (\$604.6M)** with an average charge of **\$43,997.56** (compared to \$7,075.36 in $Q_1$). The top 5% of admissions ($P_{95} \ge \$47,638.27$) absorb **\$134.8M** in gross charges.
 
 ### 2. High Stability & Low Risk in Payer Portfolio
-Hospital volume and revenue are distributed evenly across major commercial payers and Medicare:
+Hospital volume and gross billed charges are distributed evenly across major commercial payers and Medicare:
 - **Cigna**: 20.27% of volume, \$284.3M billed (avg \$25,526)
 - **Medicare**: 20.08% of volume, \$282.9M billed (avg \$25,628)
 - **Blue Cross**: 19.93% of volume, \$280.4M billed (avg \$25,603)
@@ -58,7 +58,7 @@ No single payer dominates more than 20.3% of the portfolio, insulating the organ
 ### 3. Senior Demographic Represents 30% of Total Admissions
 Patients aged 65 and older constitute the single largest patient cohort (**16,096 admissions, 29.28%** of total intake). Adult cohorts (18-35, 36-50, 51-65) each represent 22% to 26%, while pediatric cases (<18) represent only 0.21% (116 admissions).
 
-### 4. Cardiometabolic Conditions Account for Half of Inpatient Revenue
+### 4. Cardiometabolic Conditions Account for Half of Gross Billed Charges
 Admissions for Diabetes (\$236.5M), Obesity (\$236.0M), and Hypertension (\$233.4M) collectively represent **50.05% of all admissions** ($N = 27,513$) and **\$705,872,154.71** in gross hospital billing. Arthritis (\$235.2M), Asthma (\$233.1M), and Cancer (\$229.9M) comprise the remaining half.
 
 ### 5. Stable Annual Intake Velocity

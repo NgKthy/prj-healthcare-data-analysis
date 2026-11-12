@@ -3,7 +3,7 @@
 -- Domain 11: Advanced Ranking Frameworks (RANK, DENSE_RANK, ROW_NUMBER)
 -- Business Questions:
 --   1. What are the practical differences between ROW_NUMBER, RANK, and DENSE_RANK?
---   2. Which hospitals rank highest across volume, revenue, and length of stay?
+--   2. Which hospitals rank highest across volume, gross billing, and length of stay?
 --   3. What are the top 5 most expensive inpatient encounters within each condition?
 -- =============================================================================
 
