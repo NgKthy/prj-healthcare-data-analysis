@@ -1,0 +1,72 @@
+[
+  {
+    "hospital_name":"LLC Smith",
+    "total_admissions":44,
+    "total_billing":1030189.88,
+    "avg_billing":23413.41,
+    "avg_los":15.57
+  },
+  {
+    "hospital_name":"Ltd Smith",
+    "total_admissions":39,
+    "total_billing":1003365.53,
+    "avg_billing":25727.32,
+    "avg_los":16.51
+  },
+  {
+    "hospital_name":"Johnson PLC",
+    "total_admissions":37,
+    "total_billing":1081477.3200000001,
+    "avg_billing":29229.12,
+    "avg_los":16.14
+  },
+  {
+    "hospital_name":"Smith Ltd",
+    "total_admissions":37,
+    "total_billing":970035.87,
+    "avg_billing":26217.19,
+    "avg_los":15.14
+  },
+  {
+    "hospital_name":"Smith PLC",
+    "total_admissions":36,
+    "total_billing":1029424.47,
+    "avg_billing":28595.12,
+    "avg_los":17.64
+  },
+  {
+    "hospital_name":"Smith Group",
+    "total_admissions":36,
+    "total_billing":806631.29,
+    "avg_billing":22406.42,
+    "avg_los":17.0
+  },
+  {
+    "hospital_name":"Johnson Inc",
+    "total_admissions":34,
+    "total_billing":934310.71,
+    "avg_billing":27479.73,
+    "avg_los":14.53
+  },
+  {
+    "hospital_name":"Smith Inc",
+    "total_admissions":33,
+    "total_billing":772256.48,
+    "avg_billing":23401.71,
+    "avg_los":15.39
+  },
+  {
+    "hospital_name":"Group Smith",
+    "total_admissions":32,
+    "total_billing":902975.79,
+    "avg_billing":28217.99,
+    "avg_los":16.31
+  },
+  {
+    "hospital_name":"Smith LLC",
+    "total_admissions":32,
+    "total_billing":731683.65,
+    "avg_billing":22865.11,
+    "avg_los":16.09
+  }
+]

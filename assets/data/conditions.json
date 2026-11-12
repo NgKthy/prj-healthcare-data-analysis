@@ -1,0 +1,62 @@
+[
+  {
+    "medical_condition": "Arthritis",
+    "records": 9218,
+    "total_billing": 235167617.95,
+    "avg_billing": 25511.783244738555,
+    "median_billing": 25599.184999999998,
+    "avg_los": 15.50423085267954,
+    "pct_records": 16.77,
+    "pct_billing": 16.75
+  },
+  {
+    "medical_condition": "Diabetes",
+    "records": 9216,
+    "total_billing": 236486971.03,
+    "avg_billing": 25660.478627387154,
+    "median_billing": 25647.705,
+    "avg_los": 15.4306640625,
+    "pct_records": 16.77,
+    "pct_billing": 16.84
+  },
+  {
+    "medical_condition": "Hypertension",
+    "records": 9151,
+    "total_billing": 233378490.11,
+    "avg_billing": 25503.05869413179,
+    "median_billing": 25281.63,
+    "avg_los": 15.436236476887771,
+    "pct_records": 16.65,
+    "pct_billing": 16.62
+  },
+  {
+    "medical_condition": "Obesity",
+    "records": 9146,
+    "total_billing": 236006693.57,
+    "avg_billing": 25804.361859829434,
+    "median_billing": 26145.58,
+    "avg_los": 15.447627378088782,
+    "pct_records": 16.64,
+    "pct_billing": 16.81
+  },
+  {
+    "medical_condition": "Cancer",
+    "records": 9140,
+    "total_billing": 229892231.55,
+    "avg_billing": 25152.322926695844,
+    "median_billing": 24910.71,
+    "avg_los": 15.501203501094093,
+    "pct_records": 16.63,
+    "pct_billing": 16.37
+  },
+  {
+    "medical_condition": "Asthma",
+    "records": 9095,
+    "total_billing": 233136333.68,
+    "avg_billing": 25633.461647058823,
+    "median_billing": 25628.41,
+    "avg_los": 15.677295217152281,
+    "pct_records": 16.55,
+    "pct_billing": 16.6
+  }
+]
