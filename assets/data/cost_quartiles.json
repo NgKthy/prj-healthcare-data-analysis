@@ -1,0 +1,42 @@
+[
+  {
+    "billing_quartile": "Q1 (Lowest)",
+    "records": 13742,
+    "min_billing": -2008.49,
+    "max_billing": 13243.61,
+    "avg_billing": 7075.36,
+    "total_billing": 97229536.16,
+    "pct_total_billing": 6.92,
+    "avg_los": 15.61
+  },
+  {
+    "billing_quartile": "Q2",
+    "records": 13741,
+    "min_billing": 13244.06,
+    "max_billing": 25542.45,
+    "avg_billing": 19424.58,
+    "total_billing": 266913093.41,
+    "pct_total_billing": 19.01,
+    "avg_los": 15.48
+  },
+  {
+    "billing_quartile": "Q3",
+    "records": 13741,
+    "min_billing": 25543.05,
+    "max_billing": 37817.96,
+    "avg_billing": 31679.74,
+    "total_billing": 435311301.65,
+    "pct_total_billing": 31.00,
+    "avg_los": 15.44
+  },
+  {
+    "billing_quartile": "Q4 (Highest)",
+    "records": 13742,
+    "min_billing": 37820.49,
+    "max_billing": 52764.28,
+    "avg_billing": 43997.56,
+    "total_billing": 604614406.67,
+    "pct_total_billing": 43.06,
+    "avg_los": 15.47
+  }
+]

@@ -3,41 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Healthcare Inpatient SQL Analytics Portfolio | PostgreSQL Case Study</title>
-  <meta name="description" content="Production-grade SQL analytics portfolio analyzing 54,966 healthcare encounters across 5 years using pure PostgreSQL. Featuring ELT staging, window functions, and financial reconciliation.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏥</text></svg>">
+  <title>Healthcare Inpatient Encounter & Financial Analysis Using SQL | PostgreSQL Case Study</title>
+  <meta name="description" content="A practical Data Analyst case study analyzing 54,966 inpatient encounters across 5 years using pure PostgreSQL. Featuring data profiling, window functions, financial reconciliation, and strategic findings.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
   
-  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <!-- Typography: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   
-  <!-- Custom Design System -->
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="assets/css/style.css">
   
-  <!-- Chart.js CDN with SRI & Fallback -->
+  <!-- Chart.js 4.4 CDN -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 </head>
 <body>
 
-  <!-- Top Navigation -->
+  <!-- Navigation -->
   <nav class="navbar" role="navigation" aria-label="Main Navigation">
     <div class="container nav-container">
       <a href="#overview" class="nav-brand">
-        <span>🏥 Healthcare SQL Analytics</span>
+        <span>Healthcare SQL Analytics</span>
         <span class="nav-brand-badge">PostgreSQL 16</span>
       </a>
       <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
       <ul class="nav-links">
         <li><a href="#overview" class="nav-link">Overview</a></li>
-        <li><a href="#kpis" class="nav-link">KPIs</a></li>
-        <li><a href="#data-quality" class="nav-link">Data Quality</a></li>
-        <li><a href="#analytics" class="nav-link">Analytics</a></li>
+        <li><a href="#findings" class="nav-link">Key Findings</a></li>
+        <li><a href="#analytics" class="nav-link">Analytical Overview</a></li>
         <li><a href="#case-studies" class="nav-link">SQL Case Studies</a></li>
-        <li><a href="#insights" class="nav-link">Insights</a></li>
-        <li><a href="#methodology" class="nav-link">Methodology</a></li>
-        <li><a href="#reproducibility" class="nav-link">How to Run</a></li>
-        <li><a href="https://github.com/NgKthy/prj-healthcare-data-analysis" target="_blank" rel="noopener noreferrer" class="nav-link btn-cta">GitHub Repo</a></li>
+        <li><a href="#methodology" class="nav-link">Data Quality</a></li>
+        <li><a href="#limitations" class="nav-link">Limitations</a></li>
+        <li><a href="#reproducibility" class="nav-link">Reproducibility</a></li>
+        <li><a href="https://github.com/NgKthy/prj-healthcare-data-analysis" target="_blank" rel="noopener noreferrer" class="nav-cta">View GitHub</a></li>
       </ul>
     </div>
   </nav>
@@ -47,285 +46,317 @@
     <div class="container">
       <div class="hero-pill">
         <span class="hero-pill-dot"></span>
-        <span>Production Portfolio • 100% Verified SQL Pipeline</span>
+        <span>Data Analyst Portfolio Case Study &bull; 100% Verified SQL Results</span>
       </div>
-      <h1 class="hero-title">Healthcare Inpatient Operational & Financial Analysis Using SQL</h1>
+      <h1 class="hero-title">Healthcare Inpatient Encounter & Financial Analysis Using SQL</h1>
       <p class="hero-lead">
-        A production-grade, reproducible data analysis and engineering study modeling <strong>54,966 unique inpatient admissions</strong> across 5 calendar years. Featuring lossless ELT staging, surrogate key design, 14 automated reconciliation assertions, and <strong>$1.404 billion</strong> in gross hospital chargemaster charges analyzed.
+        An end-to-end clinical and operational data analysis examining <strong>54,966 inpatient encounters</strong> across 5 calendar years (May 2019 – May 2024). Utilizing pure PostgreSQL for lossless ELT staging, surrogate key design, robust central tendency estimation, and financial ledger reconciliation on <strong>$1.404 billion</strong> in gross hospital chargemaster charges.
       </p>
 
       <div class="hero-actions">
-        <a href="#case-studies" class="btn btn-primary">
-          <span>Explore SQL Case Studies</span> ↓
+        <a href="#findings" class="btn btn-primary">
+          <span>Explore Key Findings</span> &darr;
         </a>
-        <a href="https://github.com/NgKthy/prj-healthcare-data-analysis" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-          <span>View GitHub Repository</span> ↗
+        <a href="https://github.com/NgKthy/prj-healthcare-data-analysis/tree/main/sql" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+          <span>View SQL Scripts (20 Files)</span> &nearr;
         </a>
         <a href="https://github.com/NgKthy/prj-healthcare-data-analysis/blob/main/README.md" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-          <span>View Full README</span> ↗
+          <span>View Full Documentation</span> &nearr;
         </a>
       </div>
 
       <div class="hero-meta-grid">
         <div class="hero-meta-item">
-          <span class="hero-meta-label">Primary Database</span>
-          <span class="hero-meta-value">PostgreSQL 16 (ANSI Pure SQL)</span>
+          <span class="hero-meta-label">Database Technology</span>
+          <span class="hero-meta-value">PostgreSQL 16 (ANSI SQL)</span>
         </div>
         <div class="hero-meta-item">
-          <span class="hero-meta-label">Dataset Source</span>
+          <span class="hero-meta-label">Data Sourcing</span>
           <span class="hero-meta-value"><a href="https://www.kaggle.com/datasets/prasad22/healthcare-dataset" target="_blank" rel="noopener noreferrer">Kaggle Healthcare Dataset</a></span>
         </div>
         <div class="hero-meta-item">
-          <span class="hero-meta-label">Temporal Window</span>
+          <span class="hero-meta-label">Encounter Timeframe</span>
           <span class="hero-meta-value">May 2019 – May 2024 (61 Months)</span>
         </div>
         <div class="hero-meta-item">
-          <span class="hero-meta-label">Verification Status</span>
-          <span class="hero-meta-value" style="color: var(--success);">14/14 Tests Passed (0 Error Rows)</span>
+          <span class="hero-meta-label">Validation Audit</span>
+          <span class="hero-meta-value" style="color: var(--status-pass);">14/14 Automated Tests PASS</span>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- Section B: KPI Overview -->
-  <section id="kpis" class="section">
+  <!-- Section B: Key Findings (Front and Center for Recruiters) -->
+  <section id="findings" class="section">
     <div class="container">
       <div class="section-header">
-        <div class="section-kicker">Executive Metrics</div>
-        <h2 class="section-title">Verified Portfolio Baseline KPIs</h2>
+        <div class="section-kicker">Executive Summary</div>
+        <h2 class="section-title">Verified Analytical Findings</h2>
         <p class="section-desc">
-          Every figure below is queried directly from the cleaned production analytical table (<code class="table-code">healthcare.admissions</code>) and verified through automated assertion tests.
+          Four critical takeaways derived from direct SQL queries on the cleaned dataset. Every finding pairs a business takeaway with exact quantitative evidence, strategic interpretation, and documented limitations.
         </p>
       </div>
 
-      <div class="kpi-grid">
-        <div class="kpi-card accent-breeze">
-          <div class="kpi-label">Total Inpatient Encounters</div>
-          <div class="kpi-value">54,966</div>
-          <div class="kpi-subtext">Unique admissions (534 duplicates isolated)</div>
-        </div>
+      <div class="findings-grid">
+        <!-- Finding 1 -->
+        <article class="finding-card">
+          <div class="finding-header">
+            <span class="finding-number">1</span>
+            <div>
+              <h3 class="finding-title">Upper Quartile Charge Concentration</h3>
+              <p class="finding-takeaway">Gross hospital billing is heavily concentrated in the top 25% of encounters, where charges average 6.2x higher than the lowest quartile.</p>
+            </div>
+          </div>
 
-        <div class="kpi-card accent-sun">
-          <div class="kpi-label">Total Gross Billed Charges</div>
-          <div class="kpi-value">$1.404B</div>
-          <div class="kpi-subtext">Exact: $1,404,068,337.89 gross charges</div>
+          <div class="finding-evidence-box">
+            <strong>SQL Evidence:</strong> Quartile 4 ($Q_4$: charges &ge; $37,820.49) accounts for 13,742 encounters and absorbs <strong>$604.6M (43.06% of total billing)</strong> with a mean charge of $43,997.56, compared to $7,075.36 in $Q_1$. The top 5% outliers ($P_{95} \ge \$47,638.27$) absorb $134.8M (9.60%).
+          </div>
+
+          <div class="finding-section-block">
+            <span class="finding-section-label">Operational Implication</span>
+            <p class="finding-section-text">Revenue cycle teams must establish prioritized pre-bill clinical documentation review for claims exceeding $37,820 to minimize catastrophic denial velocity from commercial payers.</p>
+          </div>
+
+          <div class="finding-section-block">
+            <span class="finding-section-label">Dataset Limitation</span>
+            <p class="finding-limitation-text">The dataset provides lump-sum gross billing without itemized billing codes (ICU stay, surgery, implants); root clinical cost drivers cannot be isolated.</p>
+          </div>
+        </article>
+
+        <!-- Finding 2 -->
+        <article class="finding-card">
+          <div class="finding-header">
+            <span class="finding-number">2</span>
+            <div>
+              <h3 class="finding-title">Decoupled Stay Duration & Billed Charges</h3>
+              <p class="finding-takeaway">Inpatient length of stay shows zero descriptive correlation with billed charges (r = 0.0003), disproving stay duration as a financial proxy.</p>
+            </div>
+          </div>
+
+          <div class="finding-evidence-box">
+            <strong>SQL Evidence:</strong> Inpatient stays strictly span 1 to 30 days (Mean: 15.50 days, Median: 15.0 days). The average charge for a 1-day stay is <strong>$25,512.43</strong>, virtually identical to a 30-day stay (<strong>$25,488.19</strong>).
+          </div>
+
+          <div class="finding-section-block">
+            <span class="finding-section-label">Operational Implication</span>
+            <p class="finding-section-text">A crucial data analyst capability is identifying data anomalies. In real hospitals, longer stays drive higher charges; here, pricing models must not rely on length-of-stay assumptions.</p>
+          </div>
+
+          <div class="finding-section-block">
+            <span class="finding-section-label">Dataset Limitation</span>
+            <p class="finding-limitation-text">Direct artifact of synthetic data generation where admission dates, discharge dates, and billing amounts were populated independently.</p>
+          </div>
+        </article>
+
+        <!-- Finding 3 -->
+        <article class="finding-card">
+          <div class="finding-header">
+            <span class="finding-number">3</span>
+            <div>
+              <h3 class="finding-title">Balanced Multi-Payer Portfolio</h3>
+              <p class="finding-takeaway">Gross billing and encounter volume are split almost evenly across 5 major payers (~20% each), insulating the network from single-carrier insolvency.</p>
+            </div>
+          </div>
+
+          <div class="finding-evidence-box">
+            <strong>SQL Evidence:</strong> Cigna: $284.3M (20.27%), Medicare: $282.9M (20.08%), Blue Cross: $280.4M (19.93%), UnitedHealthcare: $279.9M (20.04%), Aetna: $276.5M (19.69%).
+          </div>
+
+          <div class="finding-section-block">
+            <span class="finding-section-label">Operational Implication</span>
+            <p class="finding-section-text">Maintains robust commercial contract renegotiation leverage. Managed care contracting can enforce standardized claim adjudication timelines without single-payer concentration risk.</p>
+          </div>
+
+          <div class="finding-section-block">
+            <span class="finding-section-label">Dataset Limitation</span>
+            <p class="finding-limitation-text">Represents gross chargemaster list prices, not net collected cash after contractual allowances and Medicare fee schedule adjustments.</p>
+          </div>
+        </article>
+
+        <!-- Finding 4 -->
+        <article class="finding-card">
+          <div class="finding-header">
+            <span class="finding-number">4</span>
+            <div>
+              <h3 class="finding-title">Senior Cohort Inpatient Bed Occupancy</h3>
+              <p class="finding-takeaway">Patients aged 65 and older represent the largest single demographic volume and financial segment, requiring specialized geriatric care pathways.</p>
+            </div>
+          </div>
+
+          <div class="finding-evidence-box">
+            <strong>SQL Evidence:</strong> Seniors 65+ account for <strong>16,096 admissions (29.28%)</strong> and <strong>$409.3M</strong> in gross charges. Pediatric encounters (&lt;18) account for only 116 records (0.21%), while young adults (18–35) account for 26.00%.
+          </div>
+
+          <div class="finding-section-block">
+            <span class="finding-section-label">Operational Implication</span>
+            <p class="finding-section-text">Hospitals should allocate post-acute discharge coordination and home health liaisons primarily to geriatric wards to prevent discharge delays.</p>
+          </div>
+
+          <div class="finding-section-block">
+            <span class="finding-section-label">Dataset Limitation</span>
+            <p class="finding-limitation-text">The dataset does not specify secondary comorbidities, admission source (nursing facility vs home), or Medicare Advantage vs Traditional Medicare.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section C: Analytical Overview (Curated KPIs + Visualizations) -->
+  <section id="analytics" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker">Operational Dashboard</div>
+        <h2 class="section-title">Analytical Overview & Metrics</h2>
+        <p class="section-desc">
+          Key performance indicators and interactive visualizations queried from the cleaned database layer. Each chart addresses a specific business question.
+        </p>
+      </div>
+
+      <!-- Curated KPI Row -->
+      <div class="kpi-row">
+        <div class="kpi-card">
+          <div class="kpi-label">Retained Encounters</div>
+          <div class="kpi-value">54,966</div>
+          <div class="kpi-subtext">From 55,500 raw; 534 duplicates isolated</div>
         </div>
 
         <div class="kpi-card">
-          <div class="kpi-label">Average Charge / Stay</div>
-          <div class="kpi-value">$25,544</div>
-          <div class="kpi-subtext">Median: $25,542.75 | Positive Avg: $25,595</div>
+          <div class="kpi-label">Total Gross Billing</div>
+          <div class="kpi-value">$1.404B</div>
+          <div class="kpi-subtext">Exact: $1,404,068,337.89 chargemaster</div>
         </div>
 
-        <div class="kpi-card accent-sun">
-          <div class="kpi-label">Average Length of Stay</div>
+        <div class="kpi-card">
+          <div class="kpi-label">Mean Charge / Stay</div>
+          <div class="kpi-value">$25,544</div>
+          <div class="kpi-subtext">Median: $25,542.75 (balanced distribution)</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-label">Mean Stay Duration</div>
           <div class="kpi-value">15.50 Days</div>
           <div class="kpi-subtext">Median: 15.0 days | Range: 1 to 30 days</div>
         </div>
 
         <div class="kpi-card">
-          <div class="kpi-label">Mean Patient Age</div>
-          <div class="kpi-value">51.53 Yrs</div>
-          <div class="kpi-subtext">Age range: 13 to 89 completed years</div>
-        </div>
-
-        <div class="kpi-card accent-breeze">
-          <div class="kpi-label">Top 5% Cost Threshold</div>
-          <div class="kpi-value">$47,638</div>
-          <div class="kpi-subtext">P95 cutoff absorbing $134.8M (9.6% charges)</div>
+          <div class="kpi-label">Senior Share (65+)</div>
+          <div class="kpi-value">29.28%</div>
+          <div class="kpi-subtext">16,096 encounters generating $409.3M</div>
         </div>
 
         <div class="kpi-card">
-          <div class="kpi-label">Distinct Treating Facilities</div>
-          <div class="kpi-value">39,876</div>
-          <div class="kpi-subtext">Synthetic high cardinality hospital names</div>
-        </div>
-
-        <div class="kpi-card">
-          <div class="kpi-label">Distinct Physician Names</div>
-          <div class="kpi-value">40,341</div>
-          <div class="kpi-subtext">Synthetic mock physician name pool</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section C: Data Quality & Governance -->
-  <section id="data-quality" class="section section-alt">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-kicker">Data Governance</div>
-        <h2 class="section-title">Data Profiling & Quality Audit Gate</h2>
-        <p class="section-desc">
-          Professional data analysts do not trust unvetted data. Prior to analytical querying, the raw dataset was audited across 10 mission-critical criteria.
-        </p>
-      </div>
-
-      <div class="dq-matrix">
-        <div class="dq-card">
-          <div class="dq-card-header">
-            <span class="dq-card-title">Completeness & Nulls</span>
-            <span class="dq-badge dq-badge-pass">PASS (100%)</span>
-          </div>
-          <div class="dq-card-stat">0 NULLs</div>
-          <p class="dq-card-desc">Zero NULLs, NaNs, or empty whitespace strings across all 15 raw attributes in 55,500 ingested rows.</p>
-        </div>
-
-        <div class="dq-card">
-          <div class="dq-card-header">
-            <span class="dq-card-title">Duplicate Record Isolation</span>
-            <span class="dq-badge dq-badge-pass">RESOLVED</span>
-          </div>
-          <div class="dq-card-stat">534 Rows</div>
-          <p class="dq-card-desc">Identified 534 exact 15-column duplicate rows ($13.36M). Removed during staging-to-production ELT.</p>
-        </div>
-
-        <div class="dq-card">
-          <div class="dq-card-header">
-            <span class="dq-card-title">Financial Credit Adjustments</span>
-            <span class="dq-badge dq-badge-pass">AUDITED</span>
-          </div>
-          <div class="dq-card-stat">106 Records</div>
-          <p class="dq-card-desc">Detected negative billing (-$2,008 to -$0.37). Flagged via <code>is_negative_billing</code> to preserve audit trails.</p>
-        </div>
-
-        <div class="dq-card">
-          <div class="dq-card-header">
-            <span class="dq-card-title">Chronological Date Validity</span>
-            <span class="dq-badge dq-badge-pass">100% VALID</span>
-          </div>
-          <div class="dq-card-stat">0 Inversions</div>
-          <p class="dq-card-desc">Discharge date is strictly &ge; admission date. Zero negative lengths of stay across entire 5-year timeline.</p>
+          <div class="kpi-label">Top Quartile Share</div>
+          <div class="kpi-value">43.06%</div>
+          <div class="kpi-subtext">Q4 (&ge; $37,820) absorbs $604.6M</div>
         </div>
       </div>
 
-      <!-- Financial Reconciliation Banner -->
-      <div class="governance-box">
-        <div class="governance-title">
-          <span>✓</span> Exact Financial Ledger Reconciliation Formula
-        </div>
-        <p style="font-size: 0.95rem; color: #4A3B00; margin-bottom: 0.5rem;">
-          To ensure zero unjustified financial data loss, total raw charges reconcile to the exact cent against production and duplicate layers:
-        </p>
-        <p style="font-family: var(--font-mono); font-size: 0.95rem; font-weight: 600; color: #1E3550;">
-          Raw Billed Charges ($1,417,432,041.95) = Cleaned Production ($1,404,068,337.89) + Duplicates ($13,363,704.06) &bull; Variance: $0.00
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section D: Interactive Analytics Visualizations -->
-  <section id="analytics" class="section">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-kicker">Interactive Dashboards</div>
-        <h2 class="section-title">Inpatient Operational Visualizations</h2>
-        <p class="section-desc">
-          Rendered via Chart.js directly from verified JSON data extracts. The color palette incorporates Buttercup Sky, Dewy Blue, Sunwashed, and Morning Breeze.
-        </p>
-      </div>
-
+      <!-- Charts Grid -->
       <div class="charts-grid">
         <!-- Chart 1: Conditions Volume & Billing -->
         <div class="chart-card col-8">
           <div class="chart-header">
-            <div>
-              <div class="chart-title">Medical Conditions: Encounter Volume vs. Total Billing</div>
-              <div class="chart-subtitle">Dual-axis view: Admissions (bars) & Total Billed Charges in $M (line)</div>
-            </div>
+            <h3 class="chart-title">Medical Conditions: Inpatient Volume vs. Total Billed Exposure</h3>
+            <p class="chart-subtitle">Dual-axis analysis: Encounter count (bars) vs. Total gross billed charges in $M USD (line)</p>
           </div>
           <div class="chart-container">
             <canvas id="chartConditions"></canvas>
           </div>
+          <div class="chart-takeaway">
+            <strong>Why this matters:</strong> While each of the 6 conditions represents ~16.6% volume due to synthetic data generation, <em>Diabetes</em> ($236.5M) and <em>Obesity</em> ($236.0M) lead in cumulative gross financial exposure.
+          </div>
         </div>
 
-        <!-- Chart 2: Admission Types Donut -->
+        <!-- Chart 2: Cost Quartiles & Revenue Dispersion -->
         <div class="chart-card col-4">
           <div class="chart-header">
-            <div>
-              <div class="chart-title">Admission Urgency Mix</div>
-              <div class="chart-subtitle">Elective vs. Urgent vs. Emergency</div>
-            </div>
+            <h3 class="chart-title">Cost Quartiles & Outlier Concentration</h3>
+            <p class="chart-subtitle">Charges grouped into equal 25% encounter tiers via NTILE(4)</p>
           </div>
           <div class="chart-container">
-            <canvas id="chartAdmissionType"></canvas>
+            <canvas id="chartCostQuartiles"></canvas>
+          </div>
+          <div class="chart-takeaway">
+            <strong>Why this matters:</strong> Illustrates severe charge disparity: $Q_4$ averages $43,998 per stay versus $7,075 in $Q_1$, driving 43.1% of all gross hospital charges from just 25% of patient admissions.
           </div>
         </div>
 
-        <!-- Chart 3: Monthly Inpatient Intake Trends -->
+        <!-- Chart 3: Longitudinal Monthly Admission Intake -->
         <div class="chart-card col-12">
           <div class="chart-header">
-            <div>
-              <div class="chart-title">Longitudinal Monthly Admission Intake Velocity (May 2019 – May 2024)</div>
-              <div class="chart-subtitle">61 continuous calendar months tracking intake volume stability (~915 admissions/month)</div>
-            </div>
+            <h3 class="chart-title">Longitudinal Monthly Admission Intake Velocity (May 2019 – May 2024)</h3>
+            <p class="chart-subtitle">61 continuous calendar months tracking intake stability via dense calendar grid (~915 admissions/month)</p>
           </div>
-          <div class="chart-container" style="min-height: 320px;">
+          <div class="chart-container" style="min-height: 290px;">
             <canvas id="chartMonthlyTrends"></canvas>
+          </div>
+          <div class="chart-takeaway">
+            <strong>Why this matters:</strong> Monthly volume fluctuates within a narrow band (850–980 encounters/month). Annual run-rate normalization reveals that full observation years (2020–2023) maintained less than 3.2% annual variation.
           </div>
         </div>
 
         <!-- Chart 4: Insurance Carrier Billing -->
-        <div class="chart-card col-6">
+        <div class="chart-card col-4">
           <div class="chart-header">
-            <div>
-              <div class="chart-title">Payer Portfolio: Gross Billed Charges by Carrier</div>
-              <div class="chart-subtitle">Total gross billed exposure across commercial carriers & Medicare ($M USD)</div>
-            </div>
+            <h3 class="chart-title">Payer Market Share & Exposure</h3>
+            <p class="chart-subtitle">Gross charges distribution across 5 insurance carriers ($M USD)</p>
           </div>
           <div class="chart-container">
             <canvas id="chartInsurance"></canvas>
           </div>
+          <div class="chart-takeaway">
+            <strong>Why this matters:</strong> No carrier exceeds 20.3% market share, indicating balanced commercial payer contracts without over-reliance on a single insurer.
+          </div>
         </div>
 
         <!-- Chart 5: Length of Stay Distribution -->
-        <div class="chart-card col-6">
+        <div class="chart-card col-4">
           <div class="chart-header">
-            <div>
-              <div class="chart-title">Inpatient Length of Stay (LOS) Cohorts</div>
-              <div class="chart-subtitle">Admissions binned into 5-day duration tiers (Range: 1 to 30 days)</div>
-            </div>
+            <h3 class="chart-title">Stay Duration vs. Average Charge</h3>
+            <p class="chart-subtitle">Admissions binned into 5-day duration cohorts with average charge line</p>
           </div>
           <div class="chart-container">
             <canvas id="chartLos"></canvas>
           </div>
+          <div class="chart-takeaway">
+            <strong>Why this matters:</strong> Visual evidence that stay duration is flatly uniform (~9,150 admissions per 5-day tier) and average charges remain flat at ~$25,500 across all durations.
+          </div>
         </div>
 
-        <!-- Chart 6: Hospital Comparison -->
-        <div class="chart-card col-12">
+        <!-- Chart 6: Admission Urgency Donut -->
+        <div class="chart-card col-4">
           <div class="chart-header">
-            <div>
-              <div class="chart-title">Active Treating Facilities Throughput Benchmark (Admissions &ge; 5)</div>
-              <div class="chart-subtitle">Evaluating patient intake across leading medical centers</div>
-            </div>
+            <h3 class="chart-title">Admission Urgency Mix</h3>
+            <p class="chart-subtitle">Triage classification: Elective vs. Urgent vs. Emergency</p>
           </div>
-          <div class="chart-container" style="min-height: 280px;">
-            <canvas id="chartHospital"></canvas>
+          <div class="chart-container">
+            <canvas id="chartAdmissionType"></canvas>
+          </div>
+          <div class="chart-takeaway">
+            <strong>Why this matters:</strong> Balanced 1/3 split across all three acuity levels. In practical hospital operations, elective volume provides predictable revenue, while emergency admissions require flexible staffing.
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Section E: SQL Case Studies -->
-  <section id="case-studies" class="section section-alt">
+  <!-- Section D: SQL Case Studies -->
+  <section id="case-studies" class="section">
     <div class="container">
       <div class="section-header">
-        <div class="section-kicker">Code Deep Dive</div>
+        <div class="section-kicker">Analytical SQL Deep Dive</div>
         <h2 class="section-title">Production SQL Case Studies</h2>
         <p class="section-desc">
-          Examining select PostgreSQL analytical scripts demonstrating CTEs, partitioned window functions (<code class="table-code">LAG</code>, <code class="table-code">DENSE_RANK</code>), percentile continuous interpolation, and defensive zero-division math.
+          Examining 4 representative PostgreSQL analytical queries demonstrating CTE chaining, partitioned window functions, dense calendar generation, and non-parametric percentiles.
         </p>
       </div>
 
       <!-- Tab Buttons -->
       <div class="case-tabs" role="tablist">
-        <button class="case-tab-btn active" data-target="tab-trends" role="tab">1. Time-Series & LAG</button>
-        <button class="case-tab-btn" data-target="tab-conditions" role="tab">2. Condition Economics</button>
-        <button class="case-tab-btn" data-target="tab-ranking" role="tab">3. Physician Ranking</button>
-        <button class="case-tab-btn" data-target="tab-quartiles" role="tab">4. Cost Quartiles & P95</button>
-        <button class="case-tab-btn" data-target="tab-cte" role="tab">5. Multi-Step CTE</button>
-        <button class="case-tab-btn" data-target="tab-demographics" role="tab">6. Demographics Cross-Tab</button>
+        <button class="case-tab-btn active" data-target="tab-trends" role="tab" aria-selected="true">1. Dense Time-Series Momentum (LAG)</button>
+        <button class="case-tab-btn" data-target="tab-quartiles" role="tab" aria-selected="false">2. Median & Cost Quartiles (NTILE)</button>
+        <button class="case-tab-btn" data-target="tab-cte" role="tab" aria-selected="false">3. Multi-Step CTE Enterprise Variance</button>
+        <button class="case-tab-btn" data-target="tab-demographics" role="tab" aria-selected="false">4. Conditional Aggregation (FILTER)</button>
       </div>
 
       <!-- Panel 1: Time Series & LAG -->
@@ -333,24 +364,22 @@
         <div class="case-study-card">
           <div class="case-meta-grid">
             <div>
-              <span class="case-tech-tag">Window Function: LAG() & Dense Calendar</span>
-              <h3 class="case-question">Business Question: What is the Month-over-Month (MoM) admissions velocity and Year-over-Year intake trajectory?</h3>
-              <p style="color: var(--text-muted); font-size: 0.95rem;">
-                Computes volume momentum without expensive self-joins. Employs <code>GENERATE_SERIES</code> to create an unbroken calendar grid, preventing <code>LAG(1)</code> from skipping inactive months in filtered subsets.
+              <span class="case-tech-tag">Window Function: LAG() & GENERATE_SERIES()</span>
+              <h3 class="case-question">Analytical Question: What is the Month-over-Month (MoM) intake trajectory, and how do truncated baseline years (2019, 2024) compare on a normalized run-rate basis?</h3>
+              <p style="color: var(--text-body); font-size: 0.9rem;">
+                Computes volume momentum without self-joins. Employs <code>GENERATE_SERIES</code> to create an unbroken calendar grid, preventing <code>LAG(1)</code> from skipping months in filtered subsets, and wraps divisions with <code>NULLIF</code>.
               </p>
             </div>
-            <div>
-              <div style="background: var(--bg-subtle-blue); padding: 0.85rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); font-size: 0.85rem;">
-                <strong>Source File:</strong> <a href="https://github.com/NgKthy/prj-healthcare-data-analysis/blob/main/sql/13_time_trends.sql" target="_blank">sql/13_time_trends.sql</a><br>
-                <strong>Engine:</strong> PostgreSQL 14+<br>
-                <strong>Execution Time:</strong> ~45ms
-              </div>
+            <div class="case-file-badge">
+              <strong>Source File:</strong> <a href="https://github.com/NgKthy/prj-healthcare-data-analysis/blob/main/sql/13_time_trends.sql" target="_blank" rel="noopener noreferrer">sql/13_time_trends.sql</a><br>
+              <strong>SQL Features:</strong> CTE, GENERATE_SERIES, LAG(), NULLIF<br>
+              <strong>Dialect:</strong> PostgreSQL 16 ANSI SQL
             </div>
           </div>
 
           <div class="code-box">
             <div class="code-box-header">
-              <span class="code-box-title">sql/13_time_trends.sql (Excerpt: Dense MoM Velocity)</span>
+              <span class="code-box-title">sql/13_time_trends.sql (Excerpt: Dense Calendar MoM Momentum)</span>
               <button class="btn-copy">Copy SQL</button>
             </div>
             <pre><code>WITH calendar_grid AS (
@@ -368,7 +397,7 @@ monthly_metrics AS (
 dense_monthly AS (
     SELECT 
         cg.calendar_month,
-        COALESCE(mm.monthly_admissions, 0)   AS monthly_admissions,
+        COALESCE(mm.monthly_admissions, 0)    AS monthly_admissions,
         COALESCE(mm.monthly_billing_usd, 0.0) AS monthly_billing_usd
     FROM calendar_grid cg
     LEFT JOIN monthly_metrics mm ON cg.calendar_month = mm.admission_month
@@ -392,185 +421,74 @@ ORDER BY calendar_month;</code></pre>
               <thead>
                 <tr>
                   <th>Calendar Year</th>
-                  <th>Months Observed</th>
+                  <th>Observed Months</th>
                   <th>Annual Admissions</th>
                   <th>Monthly Run-Rate</th>
-                  <th>YoY Normalized Growth %</th>
+                  <th>Normalized YoY Growth</th>
                   <th>Total Annual Billing ($)</th>
                 </tr>
               </thead>
               <tbody>
-                <tr><td>2019 (Partial)</td><td>8</td><td>7,300</td><td>912.5</td><td>Baseline</td><td>$187,511,030.58</td></tr>
-                <tr><td>2020</td><td>12</td><td>11,172</td><td>931.0</td><td>+2.03%</td><td>$283,952,664.08</td></tr>
-                <tr><td>2021</td><td>12</td><td>10,816</td><td>901.3</td><td>-3.19%</td><td>$277,178,298.68</td></tr>
-                <tr><td>2022</td><td>12</td><td>10,915</td><td>909.6</td><td>+0.92%</td><td>$278,612,039.87</td></tr>
-                <tr><td>2023</td><td>12</td><td>10,936</td><td>911.3</td><td>+0.19%</td><td>$279,670,832.19</td></tr>
-                <tr><td>2024 (Partial)</td><td>5</td><td>3,827</td><td>765.4</td><td>-16.01% (cutoff)</td><td>$97,143,472.49</td></tr>
+                <tr><td>2019 (Partial)</td><td>8</td><td>7,300</td><td>912.5 / mo</td><td>Baseline</td><td>$187,511,030.58</td></tr>
+                <tr><td>2020</td><td>12</td><td>11,172</td><td>931.0 / mo</td><td>+2.03%</td><td>$283,952,664.08</td></tr>
+                <tr><td>2021</td><td>12</td><td>10,816</td><td>901.3 / mo</td><td>-3.19%</td><td>$277,178,298.68</td></tr>
+                <tr><td>2022</td><td>12</td><td>10,915</td><td>909.6 / mo</td><td>+0.92%</td><td>$278,612,039.87</td></tr>
+                <tr><td>2023</td><td>12</td><td>10,936</td><td>911.3 / mo</td><td>+0.19%</td><td>$279,670,832.19</td></tr>
+                <tr><td>2024 (Partial)</td><td>5</td><td>3,827</td><td>765.4 / mo</td><td>-16.01% (Cutoff)</td><td>$97,143,472.49</td></tr>
               </tbody>
             </table>
           </div>
         </div>
       </div>
 
-      <!-- Panel 2: Condition Economics -->
-      <div id="tab-conditions" class="case-panel" role="tabpanel">
+      <!-- Panel 2: Median & Cost Quartiles -->
+      <div id="tab-quartiles" class="case-panel" role="tabpanel" hidden>
         <div class="case-study-card">
           <div class="case-meta-grid">
             <div>
-              <span class="case-tech-tag">Percentiles & Robust Central Tendency</span>
-              <h3 class="case-question">Business Question: Which medical condition drives the highest average and median gross hospital billing?</h3>
-              <p style="color: var(--text-muted); font-size: 0.95rem;">
-                Calculates true median billing using <code>PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY billing_amount::DOUBLE PRECISION)::NUMERIC</code> to avoid outlier skew, and evaluates cost-to-volume absorption ratios.
+              <span class="case-tech-tag">Statistical SQL: NTILE(4) & PERCENTILE_CONT</span>
+              <h3 class="case-question">Analytical Question: How are hospital charges dispersed across volume-balanced quartiles and upper 5% outlier thresholds?</h3>
+              <p style="color: var(--text-body); font-size: 0.9rem;">
+                Partitions admissions into 4 equal-volume financial cohorts (<code class="table-code">NTILE(4)</code>) and computes exact non-parametric median and 95th percentile (<code class="table-code">P95</code>) boundaries using explicit <code>::DOUBLE PRECISION</code> casting.
               </p>
             </div>
-            <div>
-              <div style="background: var(--bg-subtle-blue); padding: 0.85rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); font-size: 0.85rem;">
-                <strong>Source File:</strong> <a href="https://github.com/NgKthy/prj-healthcare-data-analysis/blob/main/sql/06_conditions.sql" target="_blank">sql/06_conditions.sql</a><br>
-                <strong>Techniques:</strong> CTE, PERCENTILE_CONT, NULLIF
-              </div>
+            <div class="case-file-badge">
+              <strong>Source Files:</strong> <a href="https://github.com/NgKthy/prj-healthcare-data-analysis/blob/main/sql/16_cost_segments.sql" target="_blank" rel="noopener noreferrer">sql/16_cost_segments.sql</a> &bull; <a href="https://github.com/NgKthy/prj-healthcare-data-analysis/blob/main/sql/17_high_cost.sql" target="_blank" rel="noopener noreferrer">sql/17_high_cost.sql</a><br>
+              <strong>SQL Features:</strong> NTILE(4), PERCENTILE_CONT(0.95), CAST
             </div>
           </div>
 
           <div class="code-box">
             <div class="code-box-header">
-              <span class="code-box-title">sql/06_conditions.sql (Excerpt)</span>
+              <span class="code-box-title">sql/16_cost_segments.sql (Excerpt: Financial Quartiles via NTILE)</span>
               <button class="btn-copy">Copy SQL</button>
             </div>
-            <pre><code>WITH condition_metrics AS (
+            <pre><code>WITH ranked_billing AS (
     SELECT 
-        medical_condition,
-        COUNT(admission_record_id)           AS encounter_count,
-        SUM(billing_amount)                  AS total_billing_usd,
-        AVG(billing_amount)                  AS avg_billing_usd,
-        PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY billing_amount::DOUBLE PRECISION)::NUMERIC AS median_billing_usd,
-        AVG(length_of_stay_days)             AS avg_los_days
+        admission_record_id,
+        billing_amount,
+        length_of_stay_days,
+        NTILE(4) OVER (ORDER BY billing_amount) AS billing_quartile
     FROM healthcare.admissions
-    GROUP BY medical_condition
-),
-totals AS (
-    SELECT SUM(encounter_count) AS grand_total_encounters, SUM(total_billing_usd) AS grand_total_billing_usd
-    FROM condition_metrics
 )
 SELECT 
-    cm.medical_condition,
-    cm.encounter_count,
-    ROUND(cm.encounter_count::NUMERIC * 100.0 / NULLIF(t.grand_total_encounters, 0), 2) AS pct_of_encounters,
-    ROUND(cm.total_billing_usd, 2) AS total_billing_usd,
-    ROUND(cm.avg_billing_usd, 2) AS avg_billing_usd,
-    ROUND(cm.median_billing_usd, 2) AS median_billing_usd,
-    ROUND(cm.avg_los_days, 2) AS avg_los_days,
-    ROUND((cm.total_billing_usd / NULLIF(t.grand_total_billing_usd, 0)) / 
-          (cm.encounter_count::NUMERIC / NULLIF(t.grand_total_encounters, 0)), 3) AS cost_to_volume_ratio
-FROM condition_metrics cm
-CROSS JOIN totals t
-ORDER BY cm.total_billing_usd DESC;</code></pre>
-          </div>
-
-          <div class="table-responsive">
-            <table class="data-table">
-              <thead>
-                <tr>
-                  <th>Medical Condition</th>
-                  <th>Encounters</th>
-                  <th>% Volume</th>
-                  <th>Total Billed Charges ($)</th>
-                  <th>Avg Charge ($)</th>
-                  <th>Median Charge ($)</th>
-                  <th>Avg LOS (Days)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>Diabetes</td><td>9,216</td><td>16.77%</td><td>$236,486,971.03</td><td>$25,660.48</td><td>$25,647.71</td><td>15.43</td></tr>
-                <tr><td>Obesity</td><td>9,146</td><td>16.64%</td><td>$236,006,693.57</td><td>$25,804.36</td><td>$26,145.58</td><td>15.45</td></tr>
-                <tr><td>Arthritis</td><td>9,218</td><td>16.77%</td><td>$235,167,617.95</td><td>$25,511.78</td><td>$25,599.18</td><td>15.50</td></tr>
-                <tr><td>Hypertension</td><td>9,151</td><td>16.65%</td><td>$233,378,490.11</td><td>$25,503.06</td><td>$25,281.63</td><td>15.44</td></tr>
-                <tr><td>Asthma</td><td>9,095</td><td>16.55%</td><td>$233,136,333.68</td><td>$25,633.46</td><td>$25,628.41</td><td>15.68</td></tr>
-                <tr><td>Cancer</td><td>9,140</td><td>16.63%</td><td>$229,892,231.55</td><td>$25,152.32</td><td>$24,910.71</td><td>15.50</td></tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <!-- Panel 3: Ranking -->
-      <div id="tab-ranking" class="case-panel" role="tabpanel">
-        <div class="case-study-card">
-          <div class="case-meta-grid">
-            <div>
-              <span class="case-tech-tag">Ranking: DENSE_RANK() & PARTITION BY</span>
-              <h3 class="case-question">Business Question: Who are the top 3 admitting physicians by inpatient caseload within active hospital facilities?</h3>
-              <p style="color: var(--text-muted); font-size: 0.95rem;">
-                Uses <code>ROW_NUMBER() OVER (PARTITION BY hospital_name ORDER BY COUNT(*) DESC)</code> to rank treating physicians within each medical center.
-              </p>
-            </div>
-            <div>
-              <div style="background: var(--bg-subtle-blue); padding: 0.85rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); font-size: 0.85rem;">
-                <strong>Source File:</strong> <a href="https://github.com/NgKthy/prj-healthcare-data-analysis/blob/main/sql/09_providers.sql" target="_blank">sql/09_providers.sql</a><br>
-                <strong>Techniques:</strong> Window Partitioning, DENSE_RANK
-              </div>
-            </div>
-          </div>
-
-          <div class="code-box">
-            <div class="code-box-header">
-              <span class="code-box-title">sql/09_providers.sql (Excerpt: Top Physicians per Facility)</span>
-              <button class="btn-copy">Copy SQL</button>
-            </div>
-            <pre><code>WITH top_hospitals AS (
-    SELECT hospital_name
-    FROM healthcare.admissions
-    GROUP BY hospital_name
-    HAVING COUNT(admission_record_id) >= 5
-    ORDER BY COUNT(admission_record_id) DESC
-    LIMIT 5
-),
-physician_workload AS (
-    SELECT 
-        a.hospital_name,
-        a.doctor_name,
-        COUNT(a.admission_record_id)         AS encounters_handled,
-        ROUND(SUM(a.billing_amount), 2)      AS doctor_total_billing_usd,
-        ROUND(AVG(a.billing_amount), 2)      AS doctor_avg_billing_usd,
-        ROUND(AVG(a.length_of_stay_days), 2) AS doctor_avg_los_days,
-        ROW_NUMBER() OVER (
-            PARTITION BY a.hospital_name 
-            ORDER BY COUNT(a.admission_record_id) DESC, SUM(a.billing_amount) DESC
-        ) AS physician_rank_in_facility
-    FROM healthcare.admissions a
-    INNER JOIN top_hospitals th ON a.hospital_name = th.hospital_name
-    GROUP BY a.hospital_name, a.doctor_name
-)
-SELECT 
-    hospital_name,
-    physician_rank_in_facility,
-    doctor_name,
-    encounters_handled,
-    doctor_total_billing_usd,
-    doctor_avg_billing_usd,
-    doctor_avg_los_days
-FROM physician_workload
-WHERE physician_rank_in_facility <= 3
-ORDER BY hospital_name, physician_rank_in_facility;</code></pre>
-          </div>
-        </div>
-      </div>
-
-      <!-- Panel 4: Cost Quartiles & P95 -->
-      <div id="tab-quartiles" class="case-panel" role="tabpanel">
-        <div class="case-study-card">
-          <div class="case-meta-grid">
-            <div>
-              <span class="case-tech-tag">Segmentation: NTILE(4) & P95 Outliers</span>
-              <h3 class="case-question">Business Question: How are hospital charges segmented across financial quartiles and high-cost outlier thresholds?</h3>
-              <p style="color: var(--text-muted); font-size: 0.95rem;">
-                Splits admissions into 4 equal-volume quartiles (<code class="table-code">NTILE(4)</code>) and computes the exact 95th percentile (<code class="table-code">P95</code>) threshold, revealing charge concentration.
-              </p>
-            </div>
-            <div>
-              <div style="background: var(--bg-subtle-blue); padding: 0.85rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); font-size: 0.85rem;">
-                <strong>Source Files:</strong> <a href="https://github.com/NgKthy/prj-healthcare-data-analysis/blob/main/sql/16_cost_segments.sql" target="_blank">sql/16_cost_segments.sql</a> &bull; <a href="https://github.com/NgKthy/prj-healthcare-data-analysis/blob/main/sql/17_high_cost.sql" target="_blank">sql/17_high_cost.sql</a>
-              </div>
-            </div>
+    CASE billing_quartile
+        WHEN 1 THEN 'Q1 (Lowest)'
+        WHEN 2 THEN 'Q2'
+        WHEN 3 THEN 'Q3'
+        WHEN 4 THEN 'Q4 (Highest)'
+    END AS billing_quartile,
+    COUNT(admission_record_id)            AS encounters_count,
+    ROUND(MIN(billing_amount), 2)         AS min_billing_usd,
+    ROUND(MAX(billing_amount), 2)         AS max_billing_usd,
+    ROUND(AVG(billing_amount), 2)         AS avg_billing_usd,
+    ROUND(SUM(billing_amount), 2)         AS total_billing_usd,
+    ROUND(SUM(billing_amount) * 100.0 / 
+          SUM(SUM(billing_amount)) OVER (), 2) AS billing_share_pct,
+    ROUND(AVG(length_of_stay_days), 2)    AS avg_stay_days
+FROM ranked_billing
+GROUP BY billing_quartile
+ORDER BY billing_quartile;</code></pre>
           </div>
 
           <div class="table-responsive">
@@ -591,34 +509,33 @@ ORDER BY hospital_name, physician_rank_in_facility;</code></pre>
                 <tr><td>Quartile 2</td><td>13,741</td><td>$13,244.06 to $25,542.45</td><td>$19,424.58</td><td>$266,913,093.41</td><td>19.01%</td><td>15.48 Days</td></tr>
                 <tr><td>Quartile 3</td><td>13,741</td><td>$25,543.05 to $37,817.96</td><td>$31,679.74</td><td>$435,311,301.65</td><td>31.00%</td><td>15.44 Days</td></tr>
                 <tr><td>Quartile 4 (Highest)</td><td>13,742</td><td>$37,820.49 to $52,764.28</td><td>$43,997.56</td><td>$604,614,406.67</td><td>43.06%</td><td>15.47 Days</td></tr>
-                <tr style="background-color: var(--cloud-puff); font-weight: 600;"><td>Top 5% Outliers (&ge; P95)</td><td>2,749</td><td>&ge; $47,638.27</td><td>$49,032.74</td><td>$134,791,014.99</td><td>9.60%</td><td>15.47 Days</td></tr>
+                <tr style="background-color: var(--accent-secondary-subtle); font-weight: 600;"><td>Top 5% Outliers (&ge; P95)</td><td>2,749</td><td>&ge; $47,638.27</td><td>$49,032.74</td><td>$134,791,014.99</td><td>9.60%</td><td>15.47 Days</td></tr>
               </tbody>
             </table>
           </div>
         </div>
       </div>
 
-      <!-- Panel 5: Multi-Step CTE -->
-      <div id="tab-cte" class="case-panel" role="tabpanel">
+      <!-- Panel 3: Multi-Step CTE -->
+      <div id="tab-cte" class="case-panel" role="tabpanel" hidden>
         <div class="case-study-card">
           <div class="case-meta-grid">
             <div>
               <span class="case-tech-tag">Architectural SQL: Chained CTE Benchmarking</span>
-              <h3 class="case-question">Business Question: How does each medical condition's average charge deviate from the overall enterprise hospital baseline?</h3>
-              <p style="color: var(--text-muted); font-size: 0.95rem;">
-                Computes enterprise averages in CTE 1, condition metrics in CTE 2, and calculates variance deltas and percentage deviations in the final projection.
+              <h3 class="case-question">Analytical Question: Which medical conditions deviate from overall hospital enterprise charge benchmarks after isolating accounting adjustments?</h3>
+              <p style="color: var(--text-body); font-size: 0.9rem;">
+                Computes enterprise averages in CTE 1, condition metrics in CTE 2 filtering out negative credit adjustments (<code>is_negative_billing = FALSE</code>), and calculates dollar deltas and percentage variances in the outer query.
               </p>
             </div>
-            <div>
-              <div style="background: var(--bg-subtle-blue); padding: 0.85rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); font-size: 0.85rem;">
-                <strong>Source File:</strong> <a href="https://github.com/NgKthy/prj-healthcare-data-analysis/blob/main/sql/12_cte_analysis.sql" target="_blank">sql/12_cte_analysis.sql</a>
-              </div>
+            <div class="case-file-badge">
+              <strong>Source File:</strong> <a href="https://github.com/NgKthy/prj-healthcare-data-analysis/blob/main/sql/12_cte_analysis.sql" target="_blank" rel="noopener noreferrer">sql/12_cte_analysis.sql</a><br>
+              <strong>SQL Features:</strong> Chained CTEs, CROSS JOIN, Delta Math
             </div>
           </div>
 
           <div class="code-box">
             <div class="code-box-header">
-              <span class="code-box-title">sql/12_cte_analysis.sql (Excerpt)</span>
+              <span class="code-box-title">sql/12_cte_analysis.sql (Excerpt: Enterprise Benchmark Variance)</span>
               <button class="btn-copy">Copy SQL</button>
             </div>
             <pre><code>WITH enterprise_baseline AS (
@@ -652,25 +569,71 @@ FROM condition_performance cp
 CROSS JOIN enterprise_baseline eb
 ORDER BY cp.condition_avg_billing DESC;</code></pre>
           </div>
+
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Medical Condition</th>
+                  <th>Encounters</th>
+                  <th>Condition Avg Charge</th>
+                  <th>Enterprise Baseline</th>
+                  <th>Delta ($)</th>
+                  <th>Variance %</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Obesity</td><td>9,131</td><td>$25,846.74</td><td>$25,594.63</td><td>+$252.11</td><td>+0.99%</td></tr>
+                <tr><td>Diabetes</td><td>9,198</td><td>$25,710.74</td><td>$25,594.63</td><td>+$116.11</td><td>+0.45%</td></tr>
+                <tr><td>Asthma</td><td>9,076</td><td>$25,687.11</td><td>$25,594.63</td><td>+$92.48</td><td>+0.36%</td></tr>
+                <tr><td>Arthritis</td><td>9,202</td><td>$25,556.13</td><td>$25,594.63</td><td>-$38.50</td><td>-0.15%</td></tr>
+                <tr><td>Hypertension</td><td>9,131</td><td>$25,558.91</td><td>$25,594.63</td><td>-$35.72</td><td>-0.14%</td></tr>
+                <tr><td>Cancer</td><td>9,122</td><td>$25,201.96</td><td>$25,594.63</td><td>-$392.67</td><td>-1.53%</td></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
-      <!-- Panel 6: Demographics Cross-Tab -->
-      <div id="tab-demographics" class="case-panel" role="tabpanel">
+      <!-- Panel 4: Demographics Cross-Tab -->
+      <div id="tab-demographics" class="case-panel" role="tabpanel" hidden>
         <div class="case-study-card">
           <div class="case-meta-grid">
             <div>
               <span class="case-tech-tag">Conditional Aggregation: FILTER (WHERE ...)</span>
-              <h3 class="case-question">Business Question: What is the gender ratio and volume distribution across clinical age brackets?</h3>
-              <p style="color: var(--text-muted); font-size: 0.95rem;">
-                Constructs a multi-dimensional matrix of biological sex against age brackets using PostgreSQL conditional aggregation.
+              <h3 class="case-question">Analytical Question: What is the biological sex distribution and encounter volume concentration across clinical age brackets?</h3>
+              <p style="color: var(--text-body); font-size: 0.9rem;">
+                Constructs a demographic cross-tabulation matrix using PostgreSQL's modern <code>FILTER (WHERE ...)</code> conditional aggregate syntax, avoiding bulky self-joins or multiple queries.
               </p>
             </div>
-            <div>
-              <div style="background: var(--bg-subtle-blue); padding: 0.85rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); font-size: 0.85rem;">
-                <strong>Source File:</strong> <a href="https://github.com/NgKthy/prj-healthcare-data-analysis/blob/main/sql/05_demographics.sql" target="_blank">sql/05_demographics.sql</a>
-              </div>
+            <div class="case-file-badge">
+              <strong>Source File:</strong> <a href="https://github.com/NgKthy/prj-healthcare-data-analysis/blob/main/sql/05_demographics.sql" target="_blank" rel="noopener noreferrer">sql/05_demographics.sql</a><br>
+              <strong>SQL Features:</strong> FILTER (WHERE ...), CASE WHEN, Cohorting
             </div>
+          </div>
+
+          <div class="code-box">
+            <div class="code-box-header">
+              <span class="code-box-title">sql/05_demographics.sql (Excerpt: Conditional Aggregation Matrix)</span>
+              <button class="btn-copy">Copy SQL</button>
+            </div>
+            <pre><code>SELECT 
+    CASE 
+        WHEN age < 18 THEN '< 18 (Pediatric)'
+        WHEN age BETWEEN 18 AND 35 THEN '18 - 35 (Young Adult)'
+        WHEN age BETWEEN 36 AND 50 THEN '36 - 50 (Adult)'
+        WHEN age BETWEEN 51 AND 65 THEN '51 - 65 (Middle-Aged)'
+        ELSE '65+ (Senior)'
+    END AS age_cohort,
+    COUNT(*) FILTER (WHERE gender = 'Female') AS female_admissions,
+    COUNT(*) FILTER (WHERE gender = 'Male')   AS male_admissions,
+    ROUND(COUNT(*) FILTER (WHERE gender = 'Female')::NUMERIC * 100.0 / 
+          NULLIF(COUNT(*), 0), 2) AS female_ratio_pct,
+    COUNT(*) AS total_cohort_admissions,
+    ROUND(AVG(billing_amount), 2) AS cohort_avg_billing_usd
+FROM healthcare.admissions
+GROUP BY 1
+ORDER BY MIN(age);</code></pre>
           </div>
 
           <div class="table-responsive">
@@ -699,203 +662,158 @@ ORDER BY cp.condition_avg_billing DESC;</code></pre>
     </div>
   </section>
 
-  <!-- Section F: Business Insights -->
-  <section id="insights" class="section">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-kicker">Strategic Advisory</div>
-        <h2 class="section-title">Verified Quantitative Business Insights</h2>
-        <p class="section-desc">
-          Structured following the Senior Data Analyst standard: <strong>Finding &rarr; Evidence &rarr; Business Implication &rarr; Recommendation &rarr; Limitation</strong>.
-        </p>
-      </div>
-
-      <div class="insights-grid">
-        <!-- Insight 1 -->
-        <article class="insight-card">
-          <div class="insight-num">1</div>
-          <h3 class="insight-title">Upper Quartile Charge Concentration</h3>
-          <div class="insight-block">
-            <span class="insight-label">Finding</span>
-            <p>While patient volume is evenly divided, gross financial charges are heavily concentrated in Quartile 4 ($Q_4$), with an average charge 6.2x higher than $Q_1$.</p>
-          </div>
-          <div class="insight-evidence">
-            <strong>SQL Evidence:</strong> $Q_4$ ($N = 13,742$) averages <strong>$43,997.56</strong> and absorbs <strong>$604.6M (43.06% of total charges)</strong>, compared to $7,075.36 in $Q_1$. Top 5% ($P_{95} \ge \$47,638.27$) absorb $134.8M.
-          </div>
-          <div class="insight-block">
-            <span class="insight-label">Implication & Recommendation</span>
-            <p>Pre-bill clinical documentation review should focus primarily on claims &gt; $37,820 ($Q_4$) to preempt high-dollar denials from commercial payers.</p>
-          </div>
-          <div class="insight-block">
-            <span class="insight-label">Limitation</span>
-            <p>Dataset lacks itemized revenue codes (OR, ICU, pharmacy); cannot identify specific clinical cost drivers.</p>
-          </div>
-        </article>
-
-        <!-- Insight 2 -->
-        <article class="insight-card">
-          <div class="insight-num">2</div>
-          <h3 class="insight-title">Balanced Payer Market Share</h3>
-          <div class="insight-block">
-            <span class="insight-label">Finding</span>
-            <p>Gross hospital charges and admissions are distributed evenly across five major insurance carriers without single-payer concentration risk.</p>
-          </div>
-          <div class="insight-evidence">
-            <strong>SQL Evidence:</strong> Cigna (20.27%, $284.3M), Medicare (20.08%, $282.9M), Blue Cross (19.93%, $280.4M), UnitedHealthcare (20.04%, $279.9M), Aetna (19.69%, $276.5M).
-          </div>
-          <div class="insight-block">
-            <span class="insight-label">Implication & Recommendation</span>
-            <p>Maintains strong bargaining leverage during contractual renegotiation cycles. Recommend implementing payer-specific denial velocity tracking.</p>
-          </div>
-          <div class="insight-block">
-            <span class="insight-label">Limitation</span>
-            <p>Represents gross chargemaster prices, not net collected cash after contractual allowances.</p>
-          </div>
-        </article>
-
-        <!-- Insight 3 -->
-        <article class="insight-card">
-          <div class="insight-num">3</div>
-          <h3 class="insight-title">Senior Cohort Bed Occupancy</h3>
-          <div class="insight-block">
-            <span class="insight-label">Finding</span>
-            <p>Inpatient admissions are heavily driven by older adults, with patients aged 65 and older representing the largest single demographic cohort.</p>
-          </div>
-          <div class="insight-evidence">
-            <strong>SQL Evidence:</strong> 65+ seniors account for <strong>16,096 admissions (29.28%)</strong>, generating <strong>$409.3M</strong> in gross charges. Pediatric cases (&lt;18) account for only 0.21% (116 cases).
-          </div>
-          <div class="insight-block">
-            <span class="insight-label">Implication & Recommendation</span>
-            <p>Expand specialized geriatric care coordination pathways and post-acute discharge navigators (skilled nursing / home health).</p>
-          </div>
-          <div class="insight-block">
-            <span class="insight-label">Limitation</span>
-            <p>Lacks Medicare supplemental coverage details or clinical frailty indices.</p>
-          </div>
-        </article>
-
-        <!-- Insight 4 -->
-        <article class="insight-card">
-          <div class="insight-num">4</div>
-          <h3 class="insight-title">Cardiometabolic Care Volume</h3>
-          <div class="insight-block">
-            <span class="insight-label">Finding</span>
-            <p>Cardiometabolic conditions (Diabetes, Obesity, Hypertension) account for exactly half of all hospital admissions and gross charges.</p>
-          </div>
-          <div class="insight-evidence">
-            <strong>SQL Evidence:</strong> Together they represent <strong>50.05% of volume (27,513 admissions)</strong> and <strong>$705,872,154.71</strong> in gross charges (Diabetes $236.5M, Obesity $236.0M, Hypertension $233.4M).
-          </div>
-          <div class="insight-block">
-            <span class="insight-label">Implication & Recommendation</span>
-            <p>Invest in integrated cardiometabolic chronic care outpatient programs to prevent unplanned acute admissions.</p>
-          </div>
-          <div class="insight-block">
-            <span class="insight-label">Limitation</span>
-            <p>Uniform distribution (~16.6% per condition) reflects synthetic generation parameters.</p>
-          </div>
-        </article>
-
-        <!-- Insight 5 -->
-        <article class="insight-card">
-          <div class="insight-num">5</div>
-          <h3 class="insight-title">Decoupled Bed-Day Charge Duration</h3>
-          <div class="insight-block">
-            <span class="insight-label">Finding</span>
-            <p>Inpatient stay duration (ALOS = 15.50 days) exhibits zero descriptive correlation with billed charges ($r = 0.0003$).</p>
-          </div>
-          <div class="insight-evidence">
-            <strong>SQL Evidence:</strong> Stays strictly span 1 to 30 days. Average billing for 1-day stay is <strong>$25,512.43</strong>, virtually identical to 30-day stay (<strong>$25,488.19</strong>).
-          </div>
-          <div class="insight-block">
-            <span class="insight-label">Implication & Recommendation</span>
-            <p>Must communicate clearly to leadership that this zero correlation is an artifact of synthetic generation, preventing flawed operational conclusions.</p>
-          </div>
-          <div class="insight-block">
-            <span class="insight-label">Limitation</span>
-            <p>Generator assigned billing amounts and length of stay independently.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section G: Methodology & Limitations -->
+  <!-- Section E: Data Quality and Methodology -->
   <section id="methodology" class="section section-alt">
     <div class="container">
       <div class="section-header">
-        <div class="section-kicker">Scientific Governance</div>
-        <h2 class="section-title">Methodology & Critical Limitations</h2>
+        <div class="section-kicker">Data Governance & Audit</div>
+        <h2 class="section-title">Data Profiling & Quality Gate</h2>
         <p class="section-desc">
-          Sound data analysis requires transparently communicating assumptions, data processing standards, and clinical boundaries.
+          Professional data analysts do not accept raw data on faith. Ingested records were profiled across 10 mission-critical dimensions before analytical queries were executed.
         </p>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+      <div class="dq-grid">
         <div class="dq-card">
-          <h3 class="dq-card-title" style="margin-bottom: 0.5rem;">ELT Staging-to-Production</h3>
-          <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5;">
-            Raw CSV records are ingested losslessly into permissive <code>staging_admissions</code> text tables before deterministic transformation into <code>admissions</code> with generated surrogate keys (<code>BIGSERIAL</code>) and B-Tree indexes.
-          </p>
+          <div class="dq-card-header">
+            <span class="dq-card-title">Completeness & Nulls</span>
+            <span class="dq-badge dq-badge-pass">PASS</span>
+          </div>
+          <div class="dq-card-stat">0 NULLs</div>
+          <p class="dq-card-desc">Zero NULLs, NaNs, or empty whitespace strings across all 15 raw attributes in 55,500 ingested records.</p>
         </div>
 
         <div class="dq-card">
-          <h3 class="dq-card-title" style="margin-bottom: 0.5rem;">The Readmission Fallacy (Why Out of Scope)</h3>
-          <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5;">
-            The dataset lacks an Enterprise Master Patient Index (EMPI) or Social Security Number. Grouping by <code>patient_name</code> creates false readmission pairings. 30-day readmission calculations are formally declared <strong>out of scope</strong>.
-          </p>
+          <div class="dq-card-header">
+            <span class="dq-card-title">Exact Duplicate Rows</span>
+            <span class="dq-badge dq-badge-pass">ISOLATED</span>
+          </div>
+          <div class="dq-card-stat">534 Rows</div>
+          <p class="dq-card-desc">534 exact 15-column duplicate rows ($13.36M) isolated during ELT staging into audit tables.</p>
         </div>
 
         <div class="dq-card">
-          <h3 class="dq-card-title" style="margin-bottom: 0.5rem;">Chargemaster vs. Net Collections</h3>
-          <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5;">
-            <code>billing_amount</code> represents gross hospital chargemaster list charges, not actual net cash received after commercial insurer contractual discounts or Medicare fee schedule adjustments.
+          <div class="dq-card-header">
+            <span class="dq-card-title">Accounting Adjustments</span>
+            <span class="dq-badge dq-badge-pass">FLAGGED</span>
+          </div>
+          <div class="dq-card-stat">106 Records</div>
+          <p class="dq-card-desc">Negative billing amounts (-$2,008 to -$0.37) flagged via <code>is_negative_billing</code> to preserve audit trails without distorting operational averages.</p>
+        </div>
+
+        <div class="dq-card">
+          <div class="dq-card-header">
+            <span class="dq-card-title">Chronological Integrity</span>
+            <span class="dq-badge dq-badge-pass">VALID</span>
+          </div>
+          <div class="dq-card-stat">0 Inversions</div>
+          <p class="dq-card-desc">Discharge date is strictly &ge; admission date. Zero inverted records or negative stay durations.</p>
+        </div>
+      </div>
+
+      <!-- Financial Ledger Reconciliation -->
+      <div class="reconciliation-banner">
+        <div class="reconciliation-title">
+          <span>&check;</span> Exact Financial Ledger Reconciliation Formula
+        </div>
+        <p style="font-size: 0.875rem; color: var(--text-body); margin-bottom: 0.25rem;">
+          To guarantee zero unjustified financial data loss, total raw rounded charges reconcile to the exact cent against the production analytical layer and isolated duplicates:
+        </p>
+        <div class="reconciliation-formula">
+          Raw Charges ($1,417,432,041.95) = Cleaned Encounters ($1,404,068,337.89) + Duplicate Rows ($13,363,704.06) &bull; Variance: $0.00
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section F: Limitations (Data Analyst Integrity) -->
+  <section id="limitations" class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker">Analytical Boundaries</div>
+        <h2 class="section-title">Dataset Limitations & Non-Claims</h2>
+        <p class="section-desc">
+          Sound data analysis requires clearly communicating what the data <em>cannot</em> answer. Recognizing structural limitations prevents flawed business decisions.
+        </p>
+      </div>
+
+      <div class="limitations-grid">
+        <div class="limitation-card">
+          <span class="limitation-tag">Structural Boundary</span>
+          <h3 class="limitation-title">The Readmission Fallacy & Missing Patient EMPI</h3>
+          <p class="limitation-desc">
+            The dataset records patient names (`Name`), age, and gender, but lacks an Enterprise Master Patient Index (EMPI), Social Security Number, or medical record number (MRN). The dataset exhibits 40,235 distinct names across 54,966 rows. Common names (e.g. "Michael Smith") appear multiple times with conflicting blood types and facilities. Grouping encounters by name to compute 30-day readmissions creates spurious pairings. <strong>Readmission analysis is formally declared out of scope.</strong>
+          </p>
+        </div>
+
+        <div class="limitation-card">
+          <span class="limitation-tag">Financial Accounting</span>
+          <h3 class="limitation-title">Gross Chargemaster Charges vs. Net Collected Revenue</h3>
+          <p class="limitation-desc">
+            The <code>billing_amount</code> column represents gross chargemaster list prices. In healthcare finance, chargemaster prices are marked up and rarely reflect actual cash collections. Net collected revenue is determined by contractual allowances, commercial fee schedules, copayments, and Medicare DRG reimbursement. This analysis evaluates gross charge dispersion, not hospital profitability or net revenue.
+          </p>
+        </div>
+
+        <div class="limitation-card">
+          <span class="limitation-tag">Data Generation</span>
+          <h3 class="limitation-title">Synthetic Uniformity & Decoupled Clinical Attributes</h3>
+          <p class="limitation-desc">
+            Statistical tests prove the Kaggle dataset was synthetically generated: medical conditions (~16.6% each), payers (~20.0% each), and stay durations (1–30 days) are uniformly distributed. Crucially, stay duration and billing amount are decoupled ($r = 0.0003$). Findings describe the properties of this dataset and demonstrate SQL capabilities, but should not be generalized to real-world clinical economics.
+          </p>
+        </div>
+
+        <div class="limitation-card">
+          <span class="limitation-tag">Sampling Limitation</span>
+          <h3 class="limitation-title">Provider & Physician Cardinality</h3>
+          <p class="limitation-desc">
+            The dataset contains 39,876 distinct hospital strings and 40,341 doctor names across 54,966 records. Over 99% of facilities appear only once or twice. Consequently, hospital encounter counts reflect mock string generation rather than real facility capacity, and cannot be used to benchmark hospital clinical quality or physician throughput.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Section H: Repository & Reproducibility -->
-  <section id="reproducibility" class="section">
+  <!-- Section G: Reproducibility and GitHub -->
+  <section id="reproducibility" class="section section-alt">
     <div class="container">
       <div class="section-header">
-        <div class="section-kicker">Reproducibility</div>
-        <h2 class="section-title">How to Reproduce This Project</h2>
+        <div class="section-kicker">Replication Guide</div>
+        <h2 class="section-title">How to Reproduce This Analysis</h2>
         <p class="section-desc">
-          Every script in this repository is idempotent and designed to execute sequentially in PostgreSQL or via the automated Python test harness.
+          Every script in this project is idempotent and designed to run sequentially in PostgreSQL or via the automated Python test suite.
         </p>
       </div>
 
       <div class="repro-steps">
         <div class="repro-step">
-          <div class="step-number">01</div>
-          <div class="step-title">Clone Repository</div>
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">Clone the project files from GitHub to your local environment:</p>
-          <pre style="background: #1E293B; color: #E2E8F0; padding: 0.5rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.75rem; overflow-x: auto;"><code>git clone https://github.com/NgKthy/prj-healthcare-data-analysis.git
+          <div class="step-num">Step 01</div>
+          <h3 class="step-title">Clone Repository</h3>
+          <p class="step-desc">Clone the project repository from GitHub to your local environment:</p>
+          <pre class="step-code"><code>git clone https://github.com/NgKthy/prj-healthcare-data-analysis.git
 cd prj-healthcare-data-analysis</code></pre>
         </div>
 
         <div class="repro-step">
-          <div class="step-number">02</div>
-          <div class="step-title">Initialize PostgreSQL</div>
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">Run schema setup and staging table creation:</p>
-          <pre style="background: #1E293B; color: #E2E8F0; padding: 0.5rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.75rem; overflow-x: auto;"><code>psql -U postgres -f sql/01_setup.sql
+          <div class="step-num">Step 02</div>
+          <h3 class="step-title">Initialize PostgreSQL</h3>
+          <p class="step-desc">Create the schema and lossless staging table:</p>
+          <pre class="step-code"><code>psql -U postgres -f sql/01_setup.sql
 psql -U postgres -f sql/02_staging.sql</code></pre>
         </div>
 
         <div class="repro-step">
-          <div class="step-number">03</div>
-          <div class="step-title">Import & Clean</div>
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">Copy raw CSV and execute deduplication ELT:</p>
-          <pre style="background: #1E293B; color: #E2E8F0; padding: 0.5rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.75rem; overflow-x: auto;"><code>\copy healthcare.staging_admissions FROM 'data/raw/healthcare_dataset.csv' WITH (FORMAT csv, HEADER true);
+          <div class="step-num">Step 03</div>
+          <h3 class="step-title">Import & Clean</h3>
+          <p class="step-desc">Load source CSV and execute deduplication ELT:</p>
+          <pre class="step-code"><code>\copy healthcare.staging_admissions FROM 'data/raw/healthcare_dataset.csv' WITH (FORMAT csv, HEADER true);
 psql -U postgres -f sql/04_cleaning.sql</code></pre>
         </div>
 
         <div class="repro-step">
-          <div class="step-number">04</div>
-          <div class="step-title">Run Validation Suite</div>
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">Execute analytical scripts (05 to 19) and assertion test suite:</p>
-          <pre style="background: #1E293B; color: #E2E8F0; padding: 0.5rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.75rem; overflow-x: auto;"><code>psql -U postgres -f sql/20_validation.sql
+          <div class="step-num">Step 04</div>
+          <h3 class="step-title">Run Validation Suite</h3>
+          <p class="step-desc">Execute analytical scripts (05–19) and assertion suite:</p>
+          <pre class="step-code"><code>psql -U postgres -f sql/20_validation.sql
 # Or run Python test harness:
 python scripts/run_all_tests.py</code></pre>
         </div>
@@ -903,50 +821,51 @@ python scripts/run_all_tests.py</code></pre>
     </div>
   </section>
 
-  <!-- Section I: Footer -->
+  <!-- Section H: Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div>
           <div class="footer-brand">Healthcare Inpatient SQL Portfolio</div>
-          <p style="font-size: 0.9rem; color: #A0B3C6; max-width: 480px; margin-bottom: 1rem;">
-            A verified, reproducible data analytics portfolio demonstrating PostgreSQL 16 engineering, staging-to-production pipelines, and hospital operations finance.
+          <p style="font-size: 0.875rem; color: #94A3B8; max-width: 440px; margin-bottom: 1rem; line-height: 1.6;">
+            A verified, reproducible data analytics portfolio demonstrating PostgreSQL 16 engineering, staging-to-production ELT, and revenue cycle operational analysis.
           </p>
-          <p style="font-size: 0.85rem; color: #8198B0;">
-            Palette Theme: <em>Buttercup Sky, Dewy Blue, Sunwashed, Cloud Puff, Morning Breeze</em>
+          <p style="font-size: 0.8rem; color: #64748B;">
+            Designed for Junior / Mid-Level Data Analyst evaluation &bull; Built with PostgreSQL &bull; HTML5 &bull; CSS3 &bull; Chart.js
           </p>
         </div>
 
         <div>
-          <h4 style="color: #FFFFFF; font-size: 0.95rem; margin-bottom: 0.75rem;">Quick Links</h4>
-          <ul style="list-style: none; font-size: 0.88rem; line-height: 2;">
+          <h4 style="color: #FFFFFF; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.75rem;">Page Sections</h4>
+          <ul style="list-style: none; font-size: 0.825rem; line-height: 2;">
             <li><a href="#overview">Project Overview</a></li>
-            <li><a href="#kpis">Baseline KPIs</a></li>
-            <li><a href="#data-quality">Data Quality Gate</a></li>
+            <li><a href="#findings">Key Findings</a></li>
+            <li><a href="#analytics">Operational Dashboard</a></li>
             <li><a href="#case-studies">SQL Case Studies</a></li>
-            <li><a href="#insights">Business Insights</a></li>
+            <li><a href="#methodology">Data Quality Audit</a></li>
+            <li><a href="#limitations">Limitations & Governance</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 style="color: #FFFFFF; font-size: 0.95rem; margin-bottom: 0.75rem;">Source Repositories</h4>
-          <ul style="list-style: none; font-size: 0.88rem; line-height: 2;">
+          <h4 style="color: #FFFFFF; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.75rem;">Source Repositories</h4>
+          <ul style="list-style: none; font-size: 0.825rem; line-height: 2;">
             <li><a href="https://github.com/NgKthy/prj-healthcare-data-analysis" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
-            <li><a href="https://github.com/NgKthy/prj-healthcare-data-analysis/tree/main/sql" target="_blank" rel="noopener noreferrer">SQL Source Directory</a></li>
-            <li><a href="https://github.com/NgKthy/prj-healthcare-data-analysis/tree/main/docs" target="_blank" rel="noopener noreferrer">Technical Documentation</a></li>
-            <li><a href="https://www.kaggle.com/datasets/prasad22/healthcare-dataset" target="_blank" rel="noopener noreferrer">Kaggle Dataset Source</a></li>
+            <li><a href="https://github.com/NgKthy/prj-healthcare-data-analysis/tree/main/sql" target="_blank" rel="noopener noreferrer">SQL Source Scripts (sql/)</a></li>
+            <li><a href="https://github.com/NgKthy/prj-healthcare-data-analysis/blob/main/README.md" target="_blank" rel="noopener noreferrer">Comprehensive README</a></li>
+            <li><a href="https://www.kaggle.com/datasets/prasad22/healthcare-dataset" target="_blank" rel="noopener noreferrer">Kaggle Source Dataset</a></li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <div>&copy; 2026 Healthcare Data Analysis Portfolio. Built for Junior / Mid-Level Data Analyst evaluation.</div>
-        <div>Engineered with PostgreSQL &bull; HTML5 &bull; CSS3 &bull; Chart.js</div>
+        <div>&copy; 2026 Healthcare Data Analysis Portfolio &bull; Author: NgKthy</div>
+        <div>Standard: PostgreSQL 16 ANSI SQL &bull; Zero Fabricated Numbers &bull; 100% Reconciled</div>
       </div>
     </div>
   </footer>
 
-  <!-- Main JavaScript Application -->
+  <!-- Application Logic -->
   <script src="assets/js/main.js"></script>
 </body>
 </html>
