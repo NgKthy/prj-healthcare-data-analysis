@@ -1,7 +1,7 @@
 /**
  * Healthcare SQL Analytics Portfolio — Application Logic
  * Role: Data Analyst / Frontend Engineer
- * Features: Verified Chart.js Visualizations, Resilient Fetch, Tab Switching, Copy Snippets
+ * Features: Verified Chart.js Visualizations, Zero-CORS Resilient Data Loading, Tab Switching, Copy Snippets
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -17,9 +17,18 @@ function initMobileNav() {
   const navLinks = document.querySelector('.nav-links');
   if (!toggle || !navLinks) return;
 
-  toggle.addEventListener('click', () => {
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
     const isOpen = navLinks.classList.toggle('open');
     toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+
+  // Close nav on click outside
+  document.addEventListener('click', (e) => {
+    if (!toggle.contains(e.target) && !navLinks.contains(e.target)) {
+      navLinks.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
   });
 
   navLinks.querySelectorAll('a').forEach(link => {
@@ -110,7 +119,16 @@ if (window.Chart) {
   Chart.defaults.plugins.legend.labels.usePointStyle = true;
 }
 
-async function fetchJsonData(endpoint) {
+/**
+ * Resilient Data Retriever:
+ * 1. Checks window.HEALTHCARE_ANALYTICS_DATA bundle first (works 100% on file:// without CORS blocks)
+ * 2. Attempts fetch() from static JSON endpoint
+ * 3. Throws explicit error if neither is available
+ */
+async function retrieveDataset(key, endpoint) {
+  if (window.HEALTHCARE_ANALYTICS_DATA && window.HEALTHCARE_ANALYTICS_DATA[key]) {
+    return window.HEALTHCARE_ANALYTICS_DATA[key];
+  }
   const resp = await fetch(endpoint);
   if (!resp.ok) {
     throw new Error(`HTTP ${resp.status} fetching ${endpoint}`);
@@ -137,55 +155,55 @@ function showChartError(canvasId, message) {
 async function initCharts() {
   // Chart 1: Medical Conditions
   try {
-    const data = await fetchJsonData('assets/data/conditions.json');
+    const data = await retrieveDataset('conditions', 'assets/data/conditions.json');
     renderConditionsChart(data);
   } catch (err) {
-    console.error('Conditions data fetch failed:', err);
+    console.error('Conditions data load failed:', err);
     showChartError('chartConditions', 'Failed to load assets/data/conditions.json.');
   }
 
   // Chart 2: Cost Quartiles & Outliers
   try {
-    const data = await fetchJsonData('assets/data/cost_quartiles.json');
+    const data = await retrieveDataset('cost_quartiles', 'assets/data/cost_quartiles.json');
     renderCostQuartilesChart(data);
   } catch (err) {
-    console.error('Cost Quartiles data fetch failed:', err);
+    console.error('Cost Quartiles data load failed:', err);
     showChartError('chartCostQuartiles', 'Failed to load assets/data/cost_quartiles.json.');
   }
 
   // Chart 3: Monthly Trends Timeline
   try {
-    const data = await fetchJsonData('assets/data/monthly_trends.json');
+    const data = await retrieveDataset('monthly_trends', 'assets/data/monthly_trends.json');
     renderMonthlyTrendsChart(data);
   } catch (err) {
-    console.error('Monthly trends data fetch failed:', err);
+    console.error('Monthly trends data load failed:', err);
     showChartError('chartMonthlyTrends', 'Failed to load assets/data/monthly_trends.json.');
   }
 
   // Chart 4: Insurance Carrier Breakdown
   try {
-    const data = await fetchJsonData('assets/data/insurance.json');
+    const data = await retrieveDataset('insurance', 'assets/data/insurance.json');
     renderInsuranceChart(data);
   } catch (err) {
-    console.error('Insurance data fetch failed:', err);
+    console.error('Insurance data load failed:', err);
     showChartError('chartInsurance', 'Failed to load assets/data/insurance.json.');
   }
 
   // Chart 5: Length of Stay Distribution
   try {
-    const data = await fetchJsonData('assets/data/los_distribution.json');
+    const data = await retrieveDataset('los_distribution', 'assets/data/los_distribution.json');
     renderLosChart(data);
   } catch (err) {
-    console.error('LOS distribution data fetch failed:', err);
+    console.error('LOS distribution data load failed:', err);
     showChartError('chartLos', 'Failed to load assets/data/los_distribution.json.');
   }
 
   // Chart 6: Admission Urgency Mix
   try {
-    const data = await fetchJsonData('assets/data/admission_types.json');
+    const data = await retrieveDataset('admission_types', 'assets/data/admission_types.json');
     renderAdmissionTypeChart(data);
   } catch (err) {
-    console.error('Admission type data fetch failed:', err);
+    console.error('Admission type data load failed:', err);
     showChartError('chartAdmissionType', 'Failed to load assets/data/admission_types.json.');
   }
 }

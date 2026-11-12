@@ -41,7 +41,7 @@ def verify_website():
             errors.append(f"Canvas/Element in JS not found in HTML: #{cid}")
 
     # 5. Check JSON endpoints in JS
-    json_paths = re.findall(r"fetchJsonData\('([^']+)'\)", js)
+    json_paths = re.findall(r"retrieveDataset\('[^']+',\s*'([^']+)'\)", js)
     for jp in json_paths:
         if not os.path.exists(jp):
             errors.append(f"JSON endpoint in JS not found on disk: {jp}")
